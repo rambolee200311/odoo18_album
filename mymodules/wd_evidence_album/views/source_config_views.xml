@@ -1,0 +1,42 @@
+<odoo>
+    <record id="view_evidence_album_source_config_form" model="ir.ui.view">
+        <field name="name">wd.evidence.album.source.config.form</field>
+        <field name="model">wd.evidence.album.source.config</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="model_id"/>
+                        <field name="field_name"/>
+                        <field name="label"/>
+                        <field name="title_field_name"/>
+                        <field name="description_field_name"/>
+                        <field name="active"/>
+                    </group>
+                    <div class="alert alert-info" role="alert">
+                        Only explicitly enabled configurations are available to later source resolvers.
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_evidence_album_source_config_list" model="ir.ui.view">
+        <field name="name">wd.evidence.album.source.config.list</field>
+        <field name="model">wd.evidence.album.source.config</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="model_id"/>
+                <field name="field_name"/>
+                <field name="label"/>
+                <field name="active"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_evidence_album_source_config" model="ir.actions.act_window">
+        <field name="name">Evidence Sources</field>
+        <field name="res_model">wd.evidence.album.source.config</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

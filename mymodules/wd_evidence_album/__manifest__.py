@@ -1,0 +1,20 @@
+{
+    "name": "WMS Evidence Album",
+    "summary": "Evidence albums for customer media delivery",
+    "version": "18.0.1.0.0",
+    "category": "Operations",
+    "author": "WMS",
+    "license": "LGPL-3",
+    "depends": ["base", "mail", "portal", "web"],
+    "data": [
+        "security/security.xml",
+        "security/ir.model.access.csv",
+        "views/album_views.xml",
+        "views/page_views.xml",
+        "views/item_views.xml",
+        "views/source_config_views.xml",
+        "views/menus.xml",
+    ],
+    "installable": True,
+    "application": True,
+}

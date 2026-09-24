@@ -1,0 +1,14 @@
+<odoo>
+    <menuitem id="menu_evidence_album_root" name="Evidence Album"
+              sequence="50" groups="group_album_user"/>
+    <menuitem id="menu_evidence_album_albums" name="Albums"
+              parent="menu_evidence_album_root" action="action_evidence_album"
+              sequence="10" groups="group_album_user"/>
+    <menuitem id="menu_evidence_album_configuration" name="Configuration"
+              parent="menu_evidence_album_root" sequence="90"
+              groups="group_album_manager"/>
+    <menuitem id="menu_evidence_album_sources" name="Evidence Sources"
+              parent="menu_evidence_album_configuration"
+              action="action_evidence_album_source_config"
+              sequence="10" groups="group_album_manager"/>
+</odoo>

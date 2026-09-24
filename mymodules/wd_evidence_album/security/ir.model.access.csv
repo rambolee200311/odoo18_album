@@ -1,0 +1,13 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_album_user,evidence.album.user,model_wd_evidence_album,wd_evidence_album.group_album_user,1,1,1,0
+access_album_reviewer,evidence.album.reviewer,model_wd_evidence_album,wd_evidence_album.group_album_reviewer,1,1,1,0
+access_album_manager,evidence.album.manager,model_wd_evidence_album,wd_evidence_album.group_album_manager,1,1,1,1
+access_page_user,evidence.album.page.user,model_wd_evidence_album_page,wd_evidence_album.group_album_user,1,1,1,0
+access_page_reviewer,evidence.album.page.reviewer,model_wd_evidence_album_page,wd_evidence_album.group_album_reviewer,1,1,1,1
+access_page_manager,evidence.album.page.manager,model_wd_evidence_album_page,wd_evidence_album.group_album_manager,1,1,1,1
+access_item_user,evidence.album.item.user,model_wd_evidence_album_item,wd_evidence_album.group_album_user,1,1,1,0
+access_item_reviewer,evidence.album.item.reviewer,model_wd_evidence_album_item,wd_evidence_album.group_album_reviewer,1,1,1,1
+access_item_manager,evidence.album.item.manager,model_wd_evidence_album_item,wd_evidence_album.group_album_manager,1,1,1,1
+access_source_config_user,evidence.album.source.config.user,model_wd_evidence_album_source_config,wd_evidence_album.group_album_user,1,0,0,0
+access_source_config_reviewer,evidence.album.source.config.reviewer,model_wd_evidence_album_source_config,wd_evidence_album.group_album_reviewer,1,0,0,0
+access_source_config_manager,evidence.album.source.config.manager,model_wd_evidence_album_source_config,wd_evidence_album.group_album_manager,1,1,1,1
