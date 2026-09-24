@@ -89,6 +89,17 @@ class EvidenceAlbumItem(models.Model):
         self._refresh_availability()
         return self
 
+    @api.model
+    def create_validated(self, vals):
+        attachment = self.env["ir.attachment"].browse(vals.get("attachment_id")).exists()
+        if not attachment:
+            raise ValidationError("A valid attachment is required.")
+        media_type, _attachment = self.env["wd.evidence.album.media"].validate_attachment(
+            attachment
+        )
+        vals = dict(vals, media_type=media_type, availability_state="available")
+        return self.create(vals)
+
     @api.constrains("page_id", "album_id")
     def _check_album_consistency(self):
         for record in self:

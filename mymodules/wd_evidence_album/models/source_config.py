@@ -1,5 +1,6 @@
 from odoo import api, fields, models
 from odoo.exceptions import AccessError, UserError, ValidationError
+from odoo.tools.mail import html2plaintext
 from psycopg2 import IntegrityError
 
 
@@ -7,6 +8,7 @@ class EvidenceAlbumSourceConfig(models.Model):
     _name = "wd.evidence.album.source.config"
     _description = "Evidence Album Source Configuration"
     _order = "label, id"
+    _rec_name = "label"
 
     model_id = fields.Many2one("ir.model", required=True, ondelete="cascade")
     field_name = fields.Char(required=True)
@@ -88,6 +90,10 @@ class EvidenceAlbumSourceConfig(models.Model):
                     raise ValidationError(
                         "The mapped source field does not exist: %s" % field_name
                     )
+                if field.type not in ("char", "text", "html", "many2one", "selection"):
+                    raise ValidationError(
+                        "The mapped source field type is not supported: %s" % field_name
+                    )
                 try:
                     source_model.check_field_access_rights("read", [field_name])
                 except AccessError as error:
@@ -101,3 +107,58 @@ class EvidenceAlbumSourceConfig(models.Model):
                 "The current user cannot read the configured source model."
             ) from error
         return True
+
+    def resolve_record_attachments(self, record_id):
+        """Resolve one source record using ordinary (non-sudo) permissions."""
+        self.ensure_one()
+        self._validate_configuration()
+        if not self.active:
+            raise UserError("The source configuration is disabled.")
+        source_model = self.env[self.model_id.model]
+        record = source_model.browse(record_id)
+        record.check_access_rights("read")
+        record.check_access_rule("read")
+        if not record.exists():
+            raise UserError("The configured source record does not exist.")
+        record.ensure_one()
+        attachments = record[self.field_name]
+        return attachments, {
+            "source_model": self.model_id.model,
+            "source_record_id": record.id,
+            "source_field_name": self.field_name,
+        }
+
+    def map_record_values(self, record_id):
+        self.ensure_one()
+        self._validate_configuration()
+        source_model = self.env[self.model_id.model]
+        record = source_model.browse(record_id)
+        record.check_access_rights("read")
+        record.check_access_rule("read")
+        if not record.exists():
+            raise UserError("The configured source record does not exist.")
+        record.ensure_one()
+        values = {}
+        for output, field_name in (
+            ("title", self.title_field_name),
+            ("description", self.description_field_name),
+        ):
+            if not field_name:
+                raise UserError(
+                    "A %s field must be configured; default mapping is not available."
+                    % output
+                )
+            field = source_model._fields[field_name]
+            source_model.check_field_access_rights("read", [field_name])
+            value = record[field_name]
+            if field.type in ("char", "text"):
+                values[output] = value or False
+            elif field.type == "html":
+                values[output] = html2plaintext(value or "") or False
+            elif field.type == "many2one":
+                values[output] = value.display_name if value else False
+            elif field.type == "selection":
+                values[output] = value or False
+            else:
+                raise UserError("The mapped %s field type is not supported." % output)
+        return values

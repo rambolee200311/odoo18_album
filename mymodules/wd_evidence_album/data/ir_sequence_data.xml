@@ -1,0 +1,8 @@
+<odoo>
+    <record id="seq_evidence_album" model="ir.sequence">
+        <field name="name">Evidence Album</field>
+        <field name="code">wd.evidence.album</field>
+        <field name="prefix">ALB/</field>
+        <field name="padding">5</field>
+    </record>
+</odoo>

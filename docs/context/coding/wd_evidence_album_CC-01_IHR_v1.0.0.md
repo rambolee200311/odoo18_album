@@ -11,7 +11,8 @@
 | 模块 | `wd_evidence_album` |
 | 上游基线 | SRS v1.0.0、TDD v1.0.0、Implementation Plan v1.0.0 |
 | 实施目录 | `/Users/lijianqiang/Documents/odoo18_album/mymodules/wd_evidence_album` |
-| 当前状态 | Implementation Complete；等待 ATR/HVR/FR 和人工评审 |
+| 当前状态 | Frozen Implementation History Record；实施完成；ATR/HVR/FR 状态独立记录 |
+| 冻结日期 | 2026-09-24 |
 
 IHR 只记录实际发生的实施事实，不替代 ATR 的自动化验证结论，也不替代 HVR 的人工验收结论。
 
@@ -25,8 +26,8 @@ IHR 只记录实际发生的实施事实，不替代 ATR 的自动化验证结�
 | 数据库验证方式 | Odoo ORM / Odoo Shell；未使用裸 SQL 或数据库客户端 |
 | 开始时间 | 2026-09-24 |
 | 最后更新 | 2026-09-24 |
-| Git 基线 | `000424d`；当前 CC-01 文件和代码尚未提交 |
-| 当前工作树 | Uncommitted CC-01 implementation |
+| Git 基线 | `9443848`；CC-01 代码和文档已提交并推送 |
+| 当前工作树 | CC-01 implementation committed and pushed |
 
 ## 2. Coding Contract 基线引用
 
@@ -180,6 +181,8 @@ CC-03 动作方法仅建立稳定入口，当前实现会明确提示该动作�
 - CC-03 动作方法当前为接口占位，不属于 CC-01 未完成项。
 
 ## 8. Handoff Summary
+
+本 IHR 已冻结，冻结只表示实施历史和实际变更清单已固化，不表示 ATR、HVR 或 FR 的所有工作均已通过。后续若发现事实性遗漏，必须通过版本化变更记录修订，不得静默改写。
 
 代码已交接至 ATR/HVR 阶段。下一步应执行：
 

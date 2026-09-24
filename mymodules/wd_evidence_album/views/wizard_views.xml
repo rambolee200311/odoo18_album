@@ -1,0 +1,62 @@
+<odoo>
+    <record id="view_source_page_wizard_form" model="ir.ui.view">
+        <field name="name">wd.evidence.album.source.page.wizard.form</field>
+        <field name="model">wd.evidence.album.source.page.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Create Page from Source">
+                <group>
+                    <field name="album_id" readonly="1"/>
+                    <field name="wizard_token" invisible="1"/>
+                    <field name="source_config_id"/>
+                    <field name="source_record_option_id" string="Source Record"/>
+                    <field name="title"/>
+                    <field name="description"/>
+                    <field name="select_all"/>
+                    <field name="attachment_ids" invisible="select_all" widget="many2many_tags"
+                           string="Attachments from configured field"/>
+                </group>
+                <footer>
+                    <button name="action_create" type="object" string="Create Page" class="btn-primary"/>
+                    <button special="cancel" string="Cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="view_source_items_wizard_form" model="ir.ui.view">
+        <field name="name">wd.evidence.album.source.items.wizard.form</field>
+        <field name="model">wd.evidence.album.source.items.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Add Source Attachments">
+                <group>
+                    <field name="page_id" readonly="1"/>
+                    <field name="wizard_token" invisible="1"/>
+                    <field name="source_config_id"/>
+                    <field name="source_record_option_id" string="Source Record"/>
+                    <field name="attachment_ids" widget="many2many_tags"
+                           string="Attachments from configured field"/>
+                </group>
+                <footer>
+                    <button name="action_add" type="object" string="Add Attachments" class="btn-primary"/>
+                    <button special="cancel" string="Cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="view_upload_wizard_form" model="ir.ui.view">
+        <field name="name">wd.evidence.album.upload.wizard.form</field>
+        <field name="model">wd.evidence.album.upload.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Upload Media">
+                <group>
+                    <field name="page_id" readonly="1"/>
+                    <field name="file" filename="filename"/>
+                    <field name="filename"/>
+                </group>
+                <footer>
+                    <button name="action_upload" type="object" string="Upload" class="btn-primary"/>
+                    <button special="cancel" string="Cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

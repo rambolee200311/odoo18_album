@@ -4,6 +4,7 @@
         <field name="model">wd.evidence.album</field>
         <field name="arch" type="xml">
             <list default_order="create_date desc">
+                <field name="album_number"/>
                 <field name="name"/>
                 <field name="customer_id"/>
                 <field name="state"/>
@@ -20,6 +21,9 @@
         <field name="arch" type="xml">
             <form>
                 <header>
+                    <button name="action_open_create_page_from_source" type="object"
+                            string="Create Page from Source" class="btn-primary"
+                            invisible="state != 'draft'"/>
                     <button name="action_submit_review" type="object"
                             string="Submit Review" class="btn-primary"
                             invisible="state != 'draft'"/>
@@ -42,6 +46,9 @@
                            statusbar_visible="draft,pending_review,approved,published,revoked"/>
                 </header>
                 <sheet>
+                    <div class="oe_title">
+                        <h1><field name="album_number"/></h1>
+                    </div>
                     <group>
                         <group string="Basic Information">
                             <field name="name"/>
@@ -59,11 +66,13 @@
                     </group>
                     <notebook>
                         <page string="Pages">
-                            <field name="page_ids">
-                                <list editable="bottom">
+                            <field name="page_ids" mode="list,form">
+                                <list>
                                     <field name="sequence" widget="handle"/>
                                     <field name="title"/>
                                     <field name="description"/>
+                                    <button name="action_open_form" type="object"
+                                            string="Open" icon="fa-external-link"/>
                                 </list>
                             </field>
                         </page>

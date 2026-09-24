@@ -10,9 +10,10 @@
 | CC | [CC-01 Coding Contract](./wd_evidence_album_CC-01_Coding_Contract_v1.0.0.md) |
 | 模块 | `wd_evidence_album` |
 | 环境 | Odoo 18 Community Edition；Python venv；数据库 `odoo18ce` |
-| 当前代码基线 | `000424d` + 未提交 CC-01 工作树 |
+| 当前代码基线 | `9443848`；CC-01 代码和文档已提交并推送 |
 | 执行主体 | AI assistant using Copilot SDK in VS Code |
-| 当前状态 | Partial：已执行定向自动化/脚本验证；尚无模块测试套件 |
+| 当前状态 | Frozen Automated Test Record；Partial：已执行定向自动化/脚本验证；尚无模块测试套件 |
+| 冻结日期 | 2026-09-24 |
 
 本 ATR 只记录实际执行的命令和结果，不把未执行的完整 Odoo 测试套件写成通过。
 
@@ -39,7 +40,7 @@
 | NOT RUN | 模块专用自动化测试文件、真实角色 ACL 测试 |
 | Latest valid run | ATR-RUN-001 |
 | Evidence baseline match | Yes；执行后未发生代码修改 |
-| Overall status | Partial |
+| Overall status | Partial（冻结证据范围，不代表全量测试通过） |
 
 ## 3. Coverage Matrix
 
@@ -89,4 +90,4 @@
 
 ## 8. Handoff Summary
 
-ATR 证明了本次执行范围内的静态检查、模块加载和核心 ORM 生命周期行为；它不证明人工 UI 验收，也不证明完整角色权限测试已经通过。下一步交由 HVR 执行人工场景。
+ATR 证明了本次执行范围内的静态检查、模块加载和核心 ORM 生命周期行为；它不证明人工 UI 验收，也不证明完整角色权限测试已经通过。本 ATR 已冻结，冻结只固化当前执行记录；后续新增测试必须通过版本化 ATR 更新，不得覆盖当前 Partial 结论。下一步交由 HVR 执行人工场景。

@@ -4,6 +4,12 @@
         <field name="model">wd.evidence.album.page</field>
         <field name="arch" type="xml">
             <form>
+                <header>
+                    <button name="action_open_add_source_items" type="object"
+                            string="Add Source Attachments" class="btn-primary"/>
+                    <button name="action_open_upload" type="object"
+                            string="Upload Media" class="btn-primary"/>
+                </header>
                 <sheet>
                     <group>
                         <field name="album_id" readonly="1"/>

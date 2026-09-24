@@ -9,10 +9,12 @@
     "data": [
         "security/security.xml",
         "security/ir.model.access.csv",
+        "data/ir_sequence_data.xml",
         "views/album_views.xml",
         "views/page_views.xml",
         "views/item_views.xml",
         "views/source_config_views.xml",
+        "views/wizard_views.xml",
         "views/menus.xml",
     ],
     "installable": True,

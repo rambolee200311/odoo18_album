@@ -40,3 +40,6 @@ odoo.conf
 Thumbs.db
 
 .vscode
+
+# 本地业务模块（不纳入本项目版本控制）
+mymodules/wd_qooling_app/
