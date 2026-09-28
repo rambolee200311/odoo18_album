@@ -206,3 +206,16 @@ class EvidenceAlbumUploadWizard(models.TransientModel):
             {"name": self.filename, "datas": self.file, "mimetype": mimetype or ""}
         )
         return {"type": "ir.actions.act_window_close"}
+
+
+class EvidenceAlbumExtendValidityWizard(models.TransientModel):
+    _name = "wd.evidence.album.extend.validity.wizard"
+    _description = "Extend evidence album validity"
+
+    album_id = fields.Many2one("wd.evidence.album", required=True, readonly=True)
+    valid_until = fields.Datetime(required=True, string="New valid until")
+
+    def action_extend(self):
+        self.ensure_one()
+        self.album_id.action_extend_validity(self.valid_until)
+        return {"type": "ir.actions.act_window_close"}
