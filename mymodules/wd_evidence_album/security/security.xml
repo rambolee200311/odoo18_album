@@ -83,6 +83,31 @@
         <field name="groups" eval="[(4, ref('group_album_manager'))]"/>
     </record>
 
+    <record id="rule_album_portal_published_partner" model="ir.rule">
+        <field name="name">Evidence Album: portal published customer albums</field>
+        <field name="model_id" ref="model_wd_evidence_album"/>
+        <field name="domain_force">[('customer_id.commercial_partner_id', '=', user.partner_id.commercial_partner_id.id), ('state', '=', 'published')]</field>
+        <field name="groups" eval="[(4, ref('base.group_portal'))]"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="False"/>
+        <field name="perm_create" eval="False"/>
+        <field name="perm_unlink" eval="False"/>
+    </record>
+
+    <record id="rule_page_portal_album" model="ir.rule">
+        <field name="name">Evidence Album Page: portal customer albums</field>
+        <field name="model_id" ref="model_wd_evidence_album_page"/>
+        <field name="domain_force">[('album_id.customer_id.commercial_partner_id', '=', user.partner_id.commercial_partner_id.id), ('album_id.state', '=', 'published')]</field>
+        <field name="groups" eval="[(4, ref('base.group_portal'))]"/>
+    </record>
+
+    <record id="rule_item_portal_album" model="ir.rule">
+        <field name="name">Evidence Album Item: portal customer albums</field>
+        <field name="model_id" ref="model_wd_evidence_album_item"/>
+        <field name="domain_force">[('album_id.customer_id.commercial_partner_id', '=', user.partner_id.commercial_partner_id.id), ('album_id.state', '=', 'published')]</field>
+        <field name="groups" eval="[(4, ref('base.group_portal'))]"/>
+    </record>
+
     <record id="rule_source_config_manager" model="ir.rule">
         <field name="name">Evidence Source Configuration: manager access</field>
         <field name="model_id" ref="model_wd_evidence_album_source_config"/>

@@ -1,0 +1,58 @@
+<odoo>
+    <template id="portal_album_list" name="Evidence albums">
+        <t t-call="portal.portal_layout">
+            <div class="container my-4">
+                <h1>Evidence albums</h1>
+                <div class="row g-3">
+                    <t t-foreach="albums" t-as="album">
+                        <div class="col-md-6 col-lg-4">
+                            <a class="card h-100 text-decoration-none" t-att-href="'/my/evidence-albums/%s' % album.id">
+                                <div class="card-body">
+                                    <h2 class="h5" t-esc="album.name"/>
+                                    <p class="text-muted mb-0" t-esc="album.description"/>
+                                    <small t-esc="'%s pages' % len(album.page_ids)"/>
+                                </div>
+                            </a>
+                        </div>
+                    </t>
+                </div>
+                <nav class="mt-4 d-flex justify-content-between" t-if="has_previous or has_next">
+                    <a t-if="has_previous" t-att-href="'/my/evidence-albums?page=%s' % (page - 1)">Previous</a>
+                    <a t-if="has_next" t-att-href="'/my/evidence-albums?page=%s' % (page + 1)">Next</a>
+                </nav>
+            </div>
+        </t>
+    </template>
+
+    <template id="portal_album" name="Evidence album viewer">
+        <t t-call="portal.portal_layout">
+            <div class="container my-4 o_evidence_album_viewer">
+                <a href="/my/evidence-albums">← All albums</a>
+                <h1 t-esc="album.name"/>
+                <p t-esc="album.description"/>
+                <div class="o_evidence_album_controls_mount"/>
+                <t t-foreach="pages" t-as="entry">
+                    <section class="mb-5" t-att-data-page="entry['id']">
+                        <h2 t-esc="entry['title']"/>
+                        <p t-esc="entry['description']"/>
+                        <div class="row g-3">
+                            <t t-foreach="entry['items']" t-as="item">
+                                <div class="col-6 col-md-3" t-att-data-media-type="item['media_type']">
+                                    <a class="d-block" t-att-href="'/my/evidence-albums/items/%s/download' % item['id']">
+                                        <img t-if="item['media_type'] == 'image'" class="img-fluid rounded" loading="lazy"
+                                             t-att-src="'/my/evidence-albums/items/%s/media/thumb' % item['id']"
+                                             t-att-alt="item['note'] or item['filename']"/>
+                                        <video t-if="item['media_type'] == 'video'" class="img-fluid rounded" controls="controls" preload="metadata">
+                                            <source t-att-src="'/my/evidence-albums/items/%s/media' % item['id']" t-att-type="item['mimetype']"/>
+                                        </video>
+                                    </a>
+                                    <small t-esc="item['note']"/>
+                                </div>
+                            </t>
+                        </div>
+                    </section>
+                </t>
+            </div>
+        </t>
+    </template>
+</odoo>

@@ -16,7 +16,14 @@
         "views/source_config_views.xml",
         "views/wizard_views.xml",
         "views/menus.xml",
+        "views/portal_templates.xml",
     ],
+    "assets": {
+        "web.assets_frontend": [
+            "wd_evidence_album/static/src/js/evidence_album_viewer.js",
+            "wd_evidence_album/static/src/xml/evidence_album_viewer.xml",
+        ],
+    },
     "installable": True,
     "application": True,
 }

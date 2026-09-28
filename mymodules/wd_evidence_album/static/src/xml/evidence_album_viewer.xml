@@ -1,0 +1,14 @@
+<templates xml:space="preserve">
+    <t t-name="wd_evidence_album.Viewer">
+        <div class="o_evidence_album_controls d-flex gap-2 mb-3">
+            <t t-foreach="props.pages" t-as="page" t-key="page.dataset.page">
+                <button class="btn btn-outline-primary" t-on-click="() => selectPage(props.pages.indexOf(page))">
+                    Page <t t-esc="props.pages.indexOf(page) + 1"/>
+                </button>
+            </t>
+            <button class="btn btn-outline-secondary" t-on-click="() => setFilter('all')">All</button>
+            <button class="btn btn-outline-secondary" t-on-click="() => setFilter('image')">Images</button>
+            <button class="btn btn-outline-secondary" t-on-click="() => setFilter('video')">Videos</button>
+        </div>
+    </t>
+</templates>

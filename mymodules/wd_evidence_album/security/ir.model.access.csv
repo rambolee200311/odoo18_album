@@ -16,3 +16,6 @@ access_source_items_wizard,evidence.album.source.items.wizard,model_wd_evidence_
 access_upload_wizard,evidence.album.upload.wizard,model_wd_evidence_album_upload_wizard,wd_evidence_album.group_album_user,1,1,1,1
 access_source_record_option,evidence.album.source.record.option,model_wd_evidence_album_source_record_option,wd_evidence_album.group_album_user,1,1,1,1
 access_extend_validity_wizard,evidence.album.extend.validity.wizard,model_wd_evidence_album_extend_validity_wizard,wd_evidence_album.group_album_manager,1,1,1,1
+access_album_portal,evidence.album.portal,model_wd_evidence_album,base.group_portal,1,0,0,0
+access_page_portal,evidence.album.page.portal,model_wd_evidence_album_page,base.group_portal,1,0,0,0
+access_item_portal,evidence.album.item.portal,model_wd_evidence_album_item,base.group_portal,1,0,0,0
