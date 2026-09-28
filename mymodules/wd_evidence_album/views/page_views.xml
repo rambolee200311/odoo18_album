@@ -4,25 +4,21 @@
         <field name="model">wd.evidence.album.page</field>
         <field name="arch" type="xml">
             <form>
-                <header>
-                    <button name="action_open_add_source_items" type="object"
-                            string="Add Source Attachments" class="btn-primary"/>
-                    <button name="action_open_upload" type="object"
-                            string="Upload Media" class="btn-primary"/>
-                </header>
                 <sheet>
                     <group>
                         <field name="album_id" readonly="1"/>
+                        <field name="album_state" invisible="1"/>
                         <field name="title"/>
                         <field name="description"/>
                         <field name="sequence"/>
                     </group>
-                    <field name="item_ids">
-                        <list editable="bottom">
+                    <field name="item_ids" widget="evidence_page_media_gallery">
+                        <list>
                             <field name="sequence" widget="handle"/>
                             <field name="attachment_id"/>
                             <field name="media_type"/>
                             <field name="availability_state"/>
+                            <field name="note"/>
                         </list>
                     </field>
                 </sheet>

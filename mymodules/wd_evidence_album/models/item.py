@@ -1,5 +1,5 @@
 from odoo import api, fields, models
-from odoo.exceptions import ValidationError
+from odoo.exceptions import UserError, ValidationError
 from psycopg2 import IntegrityError
 
 
@@ -89,6 +89,29 @@ class EvidenceAlbumItem(models.Model):
         self._refresh_availability()
         return self
 
+    def unlink(self):
+        if any(item.album_id.state != "draft" for item in self):
+            raise UserError("Media can only be removed from a draft album.")
+        upload_attachment_ids = self.filtered(
+            lambda item: item.source_type == "upload" and item.attachment_id
+        ).mapped("attachment_id").ids
+        result = super().unlink()
+        if upload_attachment_ids:
+            attachments = self.env["ir.attachment"].browse(upload_attachment_ids).exists()
+            remaining_items = self.search([
+                ("attachment_id", "in", attachments.ids),
+            ])
+            remaining_items._refresh_availability()
+            referenced_ids = remaining_items.mapped("attachment_id").ids
+            removable = attachments.filtered(
+                lambda attachment: (
+                    not attachment.res_model
+                    and attachment.id not in referenced_ids
+                )
+            )
+            removable.unlink()
+        return result
+
     @api.model
     def create_validated(self, vals):
         attachment = self.env["ir.attachment"].browse(vals.get("attachment_id")).exists()
@@ -140,8 +163,9 @@ class EvidenceAlbumAttachment(models.Model):
                 [("attachment_id", "in", attachment_ids)]
             )._refresh_availability()
 
-    def create(self, vals):
-        attachment = super().create(vals)
+    @api.model_create_multi
+    def create(self, vals_list):
+        attachment = super().create(vals_list)
         self._refresh_evidence_items(attachment.ids)
         return attachment
 

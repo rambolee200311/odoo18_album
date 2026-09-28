@@ -1,0 +1,34 @@
+<templates xml:space="preserve">
+    <t t-name="wd_evidence_album.EvidenceMediaUpload">
+        <div class="o_evidence_media_upload">
+            <FileUploader multiUpload="true" onUploaded.bind="onUploaded">
+                <t t-set-slot="toggler">
+                    <button type="button" class="btn btn-primary">
+                        <i class="fa fa-paperclip me-1" aria-hidden="true"/>
+                        Choose photos and videos
+                    </button>
+                </t>
+            </FileUploader>
+            <div t-if="attachments.length" class="o_evidence_media_upload__list">
+                <t t-foreach="attachments" t-as="attachment" t-key="attachment.resId">
+                    <div class="o_evidence_media_upload__item">
+                        <div class="o_evidence_media_upload__preview">
+                            <video t-if="isVideo(attachment)" t-att-src="getUrl(attachment)"
+                                   muted="muted" preload="metadata"/>
+                            <img t-else="" t-att-src="getUrl(attachment)"
+                                 t-att-alt="attachment.data.name"/>
+                        </div>
+                        <div class="o_evidence_media_upload__name" t-att-title="attachment.data.name">
+                            <t t-esc="attachment.data.name"/>
+                        </div>
+                        <button type="button" class="btn btn-sm btn-outline-danger"
+                                t-on-click="() => this.removeAttachment(attachment)"
+                                aria-label="Remove file">
+                            <i class="fa fa-trash" aria-hidden="true"/>
+                        </button>
+                    </div>
+                </t>
+            </div>
+        </div>
+    </t>
+</templates>

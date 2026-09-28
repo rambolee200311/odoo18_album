@@ -57,7 +57,13 @@ class EvidenceAlbumPortal(http.Controller):
         has_next = len(visible) > offset + self._PAGE_SIZE
         return request.render(
             "wd_evidence_album.portal_album_list",
-            {"albums": albums, "page": page, "has_previous": page > 1, "has_next": has_next},
+            {
+                "albums": albums,
+                "page": page,
+                "page_name": "evidence_album",
+                "has_previous": page > 1,
+                "has_next": has_next,
+            },
         )
 
     @http.route("/my/evidence-albums/<int:album_id>", type="http", auth="user", website=True)
@@ -84,7 +90,10 @@ class EvidenceAlbumPortal(http.Controller):
                 "description": page.description,
                 "items": item_data,
             })
-        return request.render("wd_evidence_album.portal_album", {"album": album, "pages": pages})
+        return request.render(
+            "wd_evidence_album.portal_album",
+            {"album": album, "pages": pages, "page_name": "evidence_album"},
+        )
 
     @http.route(
         "/my/evidence-albums/items/<int:item_id>/media",

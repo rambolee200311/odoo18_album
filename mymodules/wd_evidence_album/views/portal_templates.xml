@@ -1,6 +1,33 @@
 <odoo>
+    <template id="portal_my_home_evidence_albums" name="Portal layout: evidence albums"
+              inherit_id="portal.portal_my_home" priority="35">
+        <xpath expr="//div[@id='portal_common_category']" position="inside">
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="title">Evidence Albums</t>
+                <t t-set="text">View your published evidence albums</t>
+                <t t-set="url" t-value="'/my/evidence-albums'"/>
+                <t t-set="config_card" t-value="True"/>
+            </t>
+        </xpath>
+    </template>
+
+    <template id="portal_my_home_menu_evidence_albums" name="Portal breadcrumbs: evidence albums"
+              inherit_id="portal.portal_breadcrumbs" priority="35">
+        <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+            <li t-if="page_name == 'evidence_album'"
+                t-attf-class="breadcrumb-item #{'active' if not album else ''}">
+                <a t-if="album" href="/my/evidence-albums">Evidence Albums</a>
+                <t t-else="">Evidence Albums</t>
+            </li>
+            <li t-if="album" class="breadcrumb-item active">
+                <t t-esc="album.name"/>
+            </li>
+        </xpath>
+    </template>
+
     <template id="portal_album_list" name="Evidence albums">
         <t t-call="portal.portal_layout">
+            <t t-set="page_name" t-value="'evidence_album'"/>
             <div class="container my-4">
                 <h1>Evidence albums</h1>
                 <div class="row g-3">
@@ -26,6 +53,7 @@
 
     <template id="portal_album" name="Evidence album viewer">
         <t t-call="portal.portal_layout">
+            <t t-set="page_name" t-value="'evidence_album'"/>
             <div class="container my-4 o_evidence_album_viewer">
                 <a href="/my/evidence-albums">← All albums</a>
                 <h1 t-esc="album.name"/>

@@ -74,16 +74,16 @@ class EvidenceAlbumSourcePageWizard(models.TransientModel):
         if not self.source_config_id:
             return
         source_model = self.env[self.source_config_id.model_id.model]
-        self.env["wd.evidence.album.source.record.option"].create(
-            [
-                {
+        options = []
+        for record in source_model.search([]):
+            attachments, _snapshot = self.source_config_id.resolve_record_attachments(record.id)
+            if attachments:
+                options.append({
                     "wizard_token": self.wizard_token,
                     "name": record.display_name,
                     "record_ref": "%s,%s" % (record._name, record.id),
-                }
-                for record in source_model.search([])
-            ]
-        )
+                })
+        self.env["wd.evidence.album.source.record.option"].create(options)
 
     @api.onchange("source_record_option_id")
     def _onchange_source_record(self):
@@ -161,16 +161,16 @@ class EvidenceAlbumSourceItemsWizard(models.TransientModel):
         if not self.source_config_id:
             return
         source_model = self.env[self.source_config_id.model_id.model]
-        self.env["wd.evidence.album.source.record.option"].create(
-            [
-                {
+        options = []
+        for record in source_model.search([]):
+            attachments, _snapshot = self.source_config_id.resolve_record_attachments(record.id)
+            if attachments:
+                options.append({
                     "wizard_token": self.wizard_token,
                     "name": record.display_name,
                     "record_ref": "%s,%s" % (record._name, record.id),
-                }
-                for record in source_model.search([])
-            ]
-        )
+                })
+        self.env["wd.evidence.album.source.record.option"].create(options)
 
     @api.onchange("source_record_option_id")
     def _onchange_source_record(self):
@@ -196,16 +196,63 @@ class EvidenceAlbumUploadWizard(models.TransientModel):
     _description = "Upload evidence album media"
 
     page_id = fields.Many2one("wd.evidence.album.page", required=True)
-    file = fields.Binary(required=True, string="File")
-    filename = fields.Char(required=True)
+    attachment_ids = fields.Many2many("ir.attachment", string="Files")
 
     def action_upload(self):
         self.ensure_one()
-        mimetype = mimetypes.guess_type(self.filename or "")[0]
-        self.page_id.create_upload_item(
-            {"name": self.filename, "datas": self.file, "mimetype": mimetype or ""}
-        )
+        if not self.attachment_ids:
+            raise UserError("Select at least one file.")
+        for attachment in self.attachment_ids:
+            self.page_id.create_upload_item({
+                "name": attachment.name,
+                "datas": attachment.datas,
+                "mimetype": attachment.mimetype
+                or mimetypes.guess_type(attachment.name or "")[0]
+                or "",
+            })
+        self.attachment_ids.unlink()
         return {"type": "ir.actions.act_window_close"}
+
+
+class EvidenceAlbumCreatePageUploadWizard(models.TransientModel):
+    _name = "wd.evidence.album.create.page.upload.wizard"
+    _description = "Create evidence album page and upload media"
+
+    album_id = fields.Many2one("wd.evidence.album", required=True, readonly=True)
+    title = fields.Char(required=True)
+    description = fields.Text()
+    attachment_ids = fields.Many2many("ir.attachment", string="Files")
+
+    def action_create(self):
+        self.ensure_one()
+        self.album_id.check_access_rights("write")
+        self.album_id.check_access_rule("write")
+        if self.album_id.state != "draft":
+            raise UserError("Pages and media can only be added to draft albums.")
+        if not self.attachment_ids:
+            raise UserError("Select at least one file.")
+        with self.env.cr.savepoint():
+            page = self.env["wd.evidence.album.page"].create({
+                "album_id": self.album_id.id,
+                "title": self.title,
+                "description": self.description,
+            })
+            for attachment in self.attachment_ids:
+                page.create_upload_item({
+                    "name": attachment.name,
+                    "datas": attachment.datas,
+                    "mimetype": attachment.mimetype
+                    or mimetypes.guess_type(attachment.name or "")[0]
+                    or "",
+                })
+            self.attachment_ids.unlink()
+        return {
+            "type": "ir.actions.act_window",
+            "res_model": "wd.evidence.album.page",
+            "res_id": page.id,
+            "view_mode": "form",
+            "target": "current",
+        }
 
 
 class EvidenceAlbumExtendValidityWizard(models.TransientModel):

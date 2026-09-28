@@ -14,6 +14,10 @@ class EvidenceAlbumPage(models.Model):
         ondelete="cascade",
         index=True,
     )
+    album_state = fields.Selection(
+        related="album_id.state",
+        readonly=True,
+    )
     title = fields.Char(required=True)
     description = fields.Text()
     sequence = fields.Integer(default=10, required=True, index=True)
@@ -86,6 +90,36 @@ class EvidenceAlbumPage(models.Model):
             return self.env["wd.evidence.album.item"].create({
                 "page_id": self.id, "attachment_id": attachment.id,
                 "source_type": "upload", "media_type": media_type,
+                "availability_state": "available",
+            })
+        except Exception:
+            attachment.unlink()
+            raise
+
+    def create_item_from_attachment(self, attachment_id):
+        self.ensure_one()
+        self._check_editable()
+        attachment = self.env["ir.attachment"].browse(attachment_id).exists()
+        if (
+            not attachment
+            or attachment.res_model != self._name
+            or attachment.res_id != self.id
+        ):
+            raise UserError("The uploaded attachment does not belong to this page.")
+        if self.env["wd.evidence.album.item"].search_count(
+            [("album_id", "=", self.album_id.id), ("attachment_id", "=", attachment.id)]
+        ):
+            raise UserError("An attachment can only appear once in an album.")
+        try:
+            media_type, _attachment = self.env["wd.evidence.album.media"].validate_attachment(
+                attachment
+            )
+            attachment.write({"res_model": False, "res_id": False})
+            return self.env["wd.evidence.album.item"].create({
+                "page_id": self.id,
+                "attachment_id": attachment.id,
+                "source_type": "upload",
+                "media_type": media_type,
                 "availability_state": "available",
             })
         except Exception:

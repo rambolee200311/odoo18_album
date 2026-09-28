@@ -12,8 +12,7 @@ class EvidenceAlbum(models.Model):
 
     _ALLOWED_STATES = {
         "draft",
-        "pending_review",
-        "approved",
+        "confirmed",
         "published",
         "revoked",
     }
@@ -30,8 +29,7 @@ class EvidenceAlbum(models.Model):
     state = fields.Selection(
         [
             ("draft", "Draft"),
-            ("pending_review", "Pending Review"),
-            ("approved", "Approved"),
+            ("confirmed", "Confirmed"),
             ("published", "Published"),
             ("revoked", "Revoked"),
         ],
@@ -64,6 +62,15 @@ class EvidenceAlbum(models.Model):
             "The album token must be unique.",
         ),
     ]
+
+    def init(self):
+        self.env.cr.execute(
+            """
+                UPDATE wd_evidence_album
+                   SET state = 'confirmed'
+                 WHERE state IN ('pending_review', 'approved')
+            """
+        )
 
     @api.model_create_multi
     def create(self, vals_list):
@@ -161,7 +168,7 @@ class EvidenceAlbum(models.Model):
 
     def _check_not_empty(self):
         if not self.page_ids or not self.page_ids.mapped("item_ids"):
-            raise UserError("An empty album cannot be approved or published. Add a page and media first.")
+            raise UserError("An empty album cannot be confirmed or published. Add a page and media first.")
 
     def _check_publishable(self):
         self._check_not_empty()
@@ -185,43 +192,47 @@ class EvidenceAlbum(models.Model):
                 return token
         raise UserError("Could not generate a unique album token.")
 
-    def action_submit_review(self):
+    def action_confirm(self):
         self._check_single_action()
         self._check_write_access()
-        self._check_state("draft", "Only draft albums can be submitted for review.")
-        self._action_write({"state": "pending_review"})
-        return True
-
-    def action_approve(self):
-        self._check_single_action()
-        self._check_reviewer_access()
-        self._check_state("pending_review", "Only albums pending review can be approved.")
+        self._check_state("draft", "Only draft albums can be confirmed.")
         self._check_not_empty()
         self._action_write({
-            "state": "approved",
+            "state": "confirmed",
             "reviewed_by": self.env.user.id,
         })
         return True
 
-    def action_reject(self):
+    def action_reset_to_draft(self):
         self._check_single_action()
         self._check_reviewer_access()
-        self._check_state("pending_review", "Only albums pending review can be rejected.")
+        self._check_state("confirmed", "Only confirmed albums can return to Draft.")
         self._action_write({
             "state": "draft",
-            "reviewed_by": self.env.user.id,
+            "reviewed_by": False,
         })
         return True
 
     def action_publish(self):
         self._check_single_action()
         self._check_reviewer_access()
-        self._check_state("approved", "Only approved albums can be published.")
+        self._check_state("confirmed", "Only confirmed albums can be published.")
         self._check_publishable()
         self._action_write({
             "state": "published",
             "token": self._next_token(),
             "published_at": fields.Datetime.now(),
+        })
+        return True
+
+    def action_unpublish(self):
+        self._check_single_action()
+        self._check_reviewer_access()
+        self._check_state("published", "Only published albums can return to Confirmed.")
+        self._action_write({
+            "state": "confirmed",
+            "token": False,
+            "published_at": False,
         })
         return True
 
@@ -338,6 +349,32 @@ class EvidenceAlbum(models.Model):
             "type": "ir.actions.act_window",
             "name": "Create Page from Source",
             "res_model": "wd.evidence.album.source.page.wizard",
+            "view_mode": "form",
+            "target": "new",
+            "context": {"default_album_id": self.id},
+        }
+
+    def action_open_create_page(self):
+        self.ensure_one()
+        self._check_write_access()
+        self._check_state("draft", "Pages can only be added to draft albums.")
+        return {
+            "type": "ir.actions.act_window",
+            "name": "Add Page",
+            "res_model": "wd.evidence.album.page",
+            "view_mode": "form",
+            "target": "current",
+            "context": {"default_album_id": self.id},
+        }
+
+    def action_open_create_page_upload(self):
+        self.ensure_one()
+        self._check_write_access()
+        self._check_state("draft", "Pages and media can only be added to draft albums.")
+        return {
+            "type": "ir.actions.act_window",
+            "name": "Create Page and Upload Media",
+            "res_model": "wd.evidence.album.create.page.upload.wizard",
             "view_mode": "form",
             "target": "new",
             "context": {"default_album_id": self.id},

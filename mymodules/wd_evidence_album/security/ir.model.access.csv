@@ -5,7 +5,7 @@ access_album_manager,evidence.album.manager,model_wd_evidence_album,wd_evidence_
 access_page_user,evidence.album.page.user,model_wd_evidence_album_page,wd_evidence_album.group_album_user,1,1,1,0
 access_page_reviewer,evidence.album.page.reviewer,model_wd_evidence_album_page,wd_evidence_album.group_album_reviewer,1,1,1,1
 access_page_manager,evidence.album.page.manager,model_wd_evidence_album_page,wd_evidence_album.group_album_manager,1,1,1,1
-access_item_user,evidence.album.item.user,model_wd_evidence_album_item,wd_evidence_album.group_album_user,1,1,1,0
+access_item_user,evidence.album.item.user,model_wd_evidence_album_item,wd_evidence_album.group_album_user,1,1,1,1
 access_item_reviewer,evidence.album.item.reviewer,model_wd_evidence_album_item,wd_evidence_album.group_album_reviewer,1,1,1,1
 access_item_manager,evidence.album.item.manager,model_wd_evidence_album_item,wd_evidence_album.group_album_manager,1,1,1,1
 access_source_config_user,evidence.album.source.config.user,model_wd_evidence_album_source_config,wd_evidence_album.group_album_user,1,0,0,0
@@ -14,6 +14,7 @@ access_source_config_manager,evidence.album.source.config.manager,model_wd_evide
 access_source_page_wizard,evidence.album.source.page.wizard,model_wd_evidence_album_source_page_wizard,wd_evidence_album.group_album_user,1,1,1,1
 access_source_items_wizard,evidence.album.source.items.wizard,model_wd_evidence_album_source_items_wizard,wd_evidence_album.group_album_user,1,1,1,1
 access_upload_wizard,evidence.album.upload.wizard,model_wd_evidence_album_upload_wizard,wd_evidence_album.group_album_user,1,1,1,1
+access_create_page_upload_wizard,evidence.album.create.page.upload.wizard,model_wd_evidence_album_create_page_upload_wizard,wd_evidence_album.group_album_user,1,1,1,1
 access_source_record_option,evidence.album.source.record.option,model_wd_evidence_album_source_record_option,wd_evidence_album.group_album_user,1,1,1,1
 access_extend_validity_wizard,evidence.album.extend.validity.wizard,model_wd_evidence_album_extend_validity_wizard,wd_evidence_album.group_album_manager,1,1,1,1
 access_album_portal,evidence.album.portal,model_wd_evidence_album,base.group_portal,1,0,0,0

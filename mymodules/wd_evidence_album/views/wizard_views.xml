@@ -49,11 +49,31 @@
             <form string="Upload Media">
                 <group>
                     <field name="page_id" readonly="1"/>
-                    <field name="file" filename="filename"/>
-                    <field name="filename"/>
+                    <field name="attachment_ids" widget="evidence_media_upload"
+                           string="Files" nolabel="1"/>
                 </group>
                 <footer>
                     <button name="action_upload" type="object" string="Upload" class="btn-primary"/>
+                    <button special="cancel" string="Cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="view_create_page_upload_wizard_form" model="ir.ui.view">
+        <field name="name">wd.evidence.album.create.page.upload.wizard.form</field>
+        <field name="model">wd.evidence.album.create.page.upload.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Create Page and Upload Media">
+                <group>
+                    <field name="album_id" readonly="1"/>
+                    <field name="title"/>
+                    <field name="description"/>
+                    <field name="attachment_ids" widget="evidence_media_upload"
+                           string="Files" nolabel="1"/>
+                </group>
+                <footer>
+                    <button name="action_create" type="object"
+                            string="Create Page and Upload" class="btn-primary"/>
                     <button special="cancel" string="Cancel"/>
                 </footer>
             </form>
