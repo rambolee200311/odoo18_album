@@ -74,9 +74,11 @@
                             <div class="oe_button_box">
                                 <button name="action_open_create_page_from_source" type="object"
                                         string="Create Page from Source" class="btn-primary"
+                                        icon="fa-database"
                                         invisible="state != 'draft'"/>
                                 <button name="action_open_create_page_upload" type="object"
                                         string="Create Page &amp; Upload Media" class="btn-primary"
+                                        icon="fa-cloud-upload"
                                         invisible="state != 'draft'"/>
                             </div>
                             <div class="alert alert-info" invisible="id">
