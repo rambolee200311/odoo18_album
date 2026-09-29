@@ -1322,3 +1322,7 @@ msgstr "De media kon niet worden geüpload."
 #: code:addons/wd_evidence_album/static/src/js/evidence_album_viewer.js:0
 msgid "Could not remove the media."
 msgstr "De media kon niet worden verwijderd."
+
+#. module: wd_evidence_album
+msgid "Pages can only be edited in draft albums."
+msgstr "Pagina’s kunnen alleen in conceptalbums worden bewerkt."

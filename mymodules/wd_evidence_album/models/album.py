@@ -308,8 +308,8 @@ class EvidenceAlbum(models.Model):
         attachment_ids=None,
     ):
         self.ensure_one()
-        self.check_access_rights("write")
-        self.check_access_rule("write")
+        self._check_write_access()
+        self._check_state("draft", "Pages can only be added to draft albums.")
         source_config.ensure_one()
         attachments, snapshot = source_config.resolve_record_attachments(source_record_id)
         if attachment_ids is not None:
@@ -357,6 +357,8 @@ class EvidenceAlbum(models.Model):
 
     def action_open_create_page_from_source(self):
         self.ensure_one()
+        self._check_write_access()
+        self._check_state("draft", "Pages can only be added to draft albums.")
         return {
             "type": "ir.actions.act_window",
             "name": "Create Page from Source",

@@ -78,15 +78,12 @@
                                 <button name="action_open_create_page_upload" type="object"
                                         string="Create Page &amp; Upload Media" class="btn-primary"
                                         invisible="state != 'draft'"/>
-                                <button name="action_open_create_page" type="object"
-                                        string="Add Page"
-                                        invisible="state != 'draft'"/>
                             </div>
                             <div class="alert alert-info" invisible="id">
                                 Save the album before adding pages or media.
                             </div>
-                            <field name="page_ids" mode="list,form">
-                                <list>
+                            <field name="page_ids" mode="list,form" readonly="state != 'draft'">
+                                <list create="0" delete="0">
                                     <field name="sequence" widget="handle"/>
                                     <field name="title"/>
                                     <field name="description"/>

@@ -29,17 +29,39 @@ class EvidenceAlbumPage(models.Model):
         copy=True,
     )
 
+    @api.model_create_multi
+    def create(self, vals_list):
+        album_ids = {vals.get("album_id") for vals in vals_list if vals.get("album_id")}
+        albums = self.env["wd.evidence.album"].browse(album_ids).exists()
+        if any(album.state != "draft" for album in albums):
+            raise UserError("Pages can only be added to draft albums.")
+        return super().create(vals_list)
+
     def write(self, vals):
+        for page in self:
+            page._check_editable()
         if "album_id" in vals:
             target_album_id = vals["album_id"]
             if any(record.album_id.id != target_album_id for record in self):
                 raise UserError("A page cannot be moved to another album.")
         return super().write(vals)
 
+    def unlink(self):
+        for page in self:
+            page._check_editable()
+        return super().unlink()
+
     def _check_editable(self):
         self.ensure_one()
         self.album_id.check_access_rights("write")
         self.album_id.check_access_rule("write")
+        if self.album_id.state != "draft":
+            raise UserError("Pages can only be edited in draft albums.")
+
+    def action_delete(self):
+        self.ensure_one()
+        self.unlink()
+        return {"type": "ir.actions.act_window_close"}
 
     def action_open_form(self):
         self.ensure_one()

@@ -3,17 +3,23 @@
         <field name="name">wd.evidence.album.page.form</field>
         <field name="model">wd.evidence.album.page</field>
         <field name="arch" type="xml">
-            <form>
+            <form delete="false">
+                <header>
+                    <button name="action_delete" type="object" string="Delete"
+                            class="btn-secondary"
+                            invisible="album_state != 'draft'"/>
+                </header>
                 <sheet>
                     <group>
                         <field name="album_id" readonly="1"/>
                         <field name="album_state" invisible="1"/>
-                        <field name="title"/>
-                        <field name="description"/>
-                        <field name="sequence"/>
+                        <field name="title" readonly="album_state != 'draft'"/>
+                        <field name="description" readonly="album_state != 'draft'"/>
+                        <field name="sequence" readonly="album_state != 'draft'"/>
                     </group>
-                    <field name="item_ids" widget="evidence_page_media_gallery">
-                        <list>
+                    <field name="item_ids" widget="evidence_page_media_gallery"
+                           readonly="album_state != 'draft'">
+                        <list create="0" delete="0">
                             <field name="sequence" widget="handle"/>
                             <field name="attachment_id"/>
                             <field name="media_type"/>

@@ -1320,3 +1320,7 @@ msgstr "无法上传媒体。"
 #: code:addons/wd_evidence_album/static/src/js/evidence_album_viewer.js:0
 msgid "Could not remove the media."
 msgstr "无法移除媒体。"
+
+#. module: wd_evidence_album
+msgid "Pages can only be edited in draft albums."
+msgstr "页面只能在草稿相册中编辑。"
