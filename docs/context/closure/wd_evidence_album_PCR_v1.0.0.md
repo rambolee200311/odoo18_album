@@ -84,13 +84,16 @@ Release Decision = NOT APPROVED
 | 项目 | 状态 |
 |---|---|
 | Project Final Review | APPROVED — PROJECT AUTHORITY |
-| Release v1.0 | NOT APPROVED |
-| 允许发布条件 | 另行完成 Release Decision；PCR 冻结不自动创建 Release Tag 或推送远程仓库 |
+| Release v1.0 | APPROVED — PROJECT AUTHORITY |
+| Release revision | 待本次 Release Decision 提交 |
+| Release tag | `v1.0.0`（本地 annotated tag） |
+| 发布范围 | `wd_evidence_album` v1.0 项目基线，接受本 PCR 已列残余风险 |
 
 ## 8. 审批与冻结记录
 
 | 版本 | 日期 | 变更 | 审批人 | 审批日期 |
 |---|---|---|---|---|
 | v1.0.0 | 2026-09-29 | 项目负责人授权 PCR 通过，接受列明残余风险并冻结。 | 项目负责人 | 2026-09-29 |
+| v1.0.1 | 2026-09-29 | 项目负责人授权 Release v1.0；允许创建本地 `v1.0.0` annotated tag。 | 项目负责人 | 2026-09-29 |
 
-本 PCR 已冻结。Release Decision 仍是独立的人类授权步骤。
+本 PCR 已冻结，Release Decision 已完成。远程推送仍需单独授权。
