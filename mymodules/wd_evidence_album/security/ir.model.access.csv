@@ -11,6 +11,7 @@ access_item_manager,evidence.album.item.manager,model_wd_evidence_album_item,wd_
 access_source_config_user,evidence.album.source.config.user,model_wd_evidence_album_source_config,wd_evidence_album.group_album_user,1,0,0,0
 access_source_config_reviewer,evidence.album.source.config.reviewer,model_wd_evidence_album_source_config,wd_evidence_album.group_album_reviewer,1,0,0,0
 access_source_config_manager,evidence.album.source.config.manager,model_wd_evidence_album_source_config,wd_evidence_album.group_album_manager,1,1,1,1
+access_album_settings_manager,evidence.album.settings.manager,model_wd_evidence_album_config_settings,wd_evidence_album.group_album_manager,1,1,1,1
 access_source_page_wizard,evidence.album.source.page.wizard,model_wd_evidence_album_source_page_wizard,wd_evidence_album.group_album_user,1,1,1,1
 access_source_items_wizard,evidence.album.source.items.wizard,model_wd_evidence_album_source_items_wizard,wd_evidence_album.group_album_user,1,1,1,1
 access_upload_wizard,evidence.album.upload.wizard,model_wd_evidence_album_upload_wizard,wd_evidence_album.group_album_user,1,1,1,1
