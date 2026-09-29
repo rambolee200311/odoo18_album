@@ -1293,22 +1293,32 @@ msgstr "← Alle albums"
 msgid "← Back to Album"
 msgstr "← Terug naar album"
 
-#. #. odoo-javascript
+#. module: wd_evidence_album
+#. odoo-javascript
+#: code:addons/wd_evidence_album/static/src/js/evidence_album_viewer.js:0
 msgid "Filter media"
 msgstr "Media filteren"
 
-#. #. odoo-javascript
+#. module: wd_evidence_album
+#. odoo-javascript
+#: code:addons/wd_evidence_album/static/src/js/evidence_album_viewer.js:0
 msgid "Select all"
 msgstr "Alles selecteren"
 
-#. #. odoo-javascript
+#. module: wd_evidence_album
+#. odoo-javascript
+#: code:addons/wd_evidence_album/static/src/js/evidence_album_viewer.js:0
 msgid "The selected media could not be downloaded."
 msgstr "De geselecteerde media kan niet worden gedownload."
 
-#. #. odoo-javascript
+#. module: wd_evidence_album
+#. odoo-javascript
+#: code:addons/wd_evidence_album/static/src/js/evidence_album_viewer.js:0
 msgid "Could not upload the media."
 msgstr "De media kon niet worden geüpload."
 
-#. #. odoo-javascript
+#. module: wd_evidence_album
+#. odoo-javascript
+#: code:addons/wd_evidence_album/static/src/js/evidence_album_viewer.js:0
 msgid "Could not remove the media."
 msgstr "De media kon niet worden verwijderd."

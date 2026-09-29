@@ -1291,22 +1291,32 @@ msgstr "← 所有相册"
 msgid "← Back to Album"
 msgstr "← 返回相册"
 
-#. #. odoo-javascript
+#. module: wd_evidence_album
+#. odoo-javascript
+#: code:addons/wd_evidence_album/static/src/js/evidence_album_viewer.js:0
 msgid "Filter media"
 msgstr "筛选媒体"
 
-#. #. odoo-javascript
+#. module: wd_evidence_album
+#. odoo-javascript
+#: code:addons/wd_evidence_album/static/src/js/evidence_album_viewer.js:0
 msgid "Select all"
 msgstr "全选"
 
-#. #. odoo-javascript
+#. module: wd_evidence_album
+#. odoo-javascript
+#: code:addons/wd_evidence_album/static/src/js/evidence_album_viewer.js:0
 msgid "The selected media could not be downloaded."
 msgstr "无法下载所选媒体。"
 
-#. #. odoo-javascript
+#. module: wd_evidence_album
+#. odoo-javascript
+#: code:addons/wd_evidence_album/static/src/js/evidence_album_viewer.js:0
 msgid "Could not upload the media."
 msgstr "无法上传媒体。"
 
-#. #. odoo-javascript
+#. module: wd_evidence_album
+#. odoo-javascript
+#: code:addons/wd_evidence_album/static/src/js/evidence_album_viewer.js:0
 msgid "Could not remove the media."
 msgstr "无法移除媒体。"
