@@ -4,6 +4,7 @@ import { Component, onPatched, onWillStart, onWillUnmount, useState } from "@odo
 import { registry } from "@web/core/registry";
 import { FileInput } from "@web/core/file_input/file_input";
 import { useService } from "@web/core/utils/hooks";
+import { _t } from "@web/core/l10n/translation";
 import { standardFieldProps } from "@web/views/fields/standard_field_props";
 import { useX2ManyCrud } from "@web/views/fields/relational_utils";
 
@@ -102,7 +103,7 @@ export class EvidencePageMediaGallery extends Component {
                 );
             } catch (error) {
                 this.notification.add(
-                    error.data?.message || error.message || "Could not upload the media.",
+                    error.data?.message || error.message || _t("Could not upload the media."),
                     { type: "danger" },
                 );
             }
@@ -127,7 +128,7 @@ export class EvidencePageMediaGallery extends Component {
             }
         } catch (error) {
             this.notification.add(
-                error.data?.message || error.message || "Could not remove the media.",
+                error.data?.message || error.message || _t("Could not remove the media."),
                 { type: "danger" },
             );
         }

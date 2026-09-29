@@ -1,31 +1,40 @@
 /** @odoo-module **/
 
 import { Component, mount, onMounted, onWillUnmount, useEffect, useRef, useState, xml } from "@odoo/owl";
+import { _t } from "@web/core/l10n/translation";
 
 class EvidenceAlbumViewer extends Component {
     static template = xml`
         <div t-ref="controls" class="o_evidence_album_controls d-flex gap-2 mb-3">
             <div class="d-flex gap-2 align-items-center">
-                <select class="form-select w-auto" aria-label="Filter media" t-on-change="onFilterChange">
-                    <option value="all">All</option>
-                    <option value="image">Images</option>
-                    <option value="video">Videos</option>
+                <select class="form-select w-auto" t-att-aria-label="labels.filterMedia" t-on-change="onFilterChange">
+                    <option value="all"><t t-esc="labels.all"/></option>
+                    <option value="image"><t t-esc="labels.images"/></option>
+                    <option value="video"><t t-esc="labels.videos"/></option>
                 </select>
             </div>
             <div class="d-flex gap-2 align-items-center ms-auto">
                 <label class="btn btn-outline-secondary mb-0">
                     <input t-ref="selectAll" type="checkbox" class="form-check-input me-1"
                            t-on-change="toggleCurrentPageSelection"/>
-                    Select all
+                    <t t-esc="labels.selectAll"/>
                 </label>
                 <button class="btn btn-primary" t-on-click="downloadSelected" t-att-disabled="!state.selected.length">
-                    Download
+                    <t t-esc="labels.download"/>
                 </button>
             </div>
         </div>
     `;
 
     setup() {
+        this.labels = {
+            all: _t("All"),
+            images: _t("Images"),
+            videos: _t("Videos"),
+            filterMedia: _t("Filter media"),
+            selectAll: _t("Select all"),
+            download: _t("Download"),
+        };
         this.state = useState({ page: 0, filter: "all", lightbox: null, selected: [] });
         this.controls = useRef("controls");
         this.selectAllRef = useRef("selectAll");
@@ -151,7 +160,7 @@ class EvidenceAlbumViewer extends Component {
         });
         if (!response.ok) {
             const error = await response.json().catch(() => ({}));
-            window.alert(error.error || "The selected media could not be downloaded.");
+            window.alert(error.error || _t("The selected media could not be downloaded."));
             return;
         }
         const blob = await response.blob();

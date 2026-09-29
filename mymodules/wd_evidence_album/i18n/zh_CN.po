@@ -1,0 +1,1312 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* wd_evidence_album
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-29 08:56+0000\n"
+"PO-Revision-Date: 2026-09-29 08:56+0000\n"
+"Last-Translator: \n"
+"Language-Team: zh_CN\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. module: wd_evidence_album
+#: model_terms:ir.ui.view,arch_db:wd_evidence_album.portal_album
+msgid "<span class=\"visually-hidden\">Select media</span>"
+msgstr "<span class=\"visually-hidden\">选择媒体</span>"
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,help:wd_evidence_album.field_wd_evidence_album_config_settings__google_translate_api_key
+msgid ""
+"A valid Google API key is required to enable message translation. "
+"https://cloud.google.com/translate/docs/setup"
+msgstr ""
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_config_settings__unsplash_access_key
+msgid "Access Key"
+msgstr "访问密钥"
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_source_config__active
+msgid "Active"
+msgstr "启用"
+
+#. module: wd_evidence_album
+#: model_terms:ir.ui.view,arch_db:wd_evidence_album.view_source_items_wizard_form
+msgid "Add Attachments"
+msgstr "添加附件"
+
+#. module: wd_evidence_album
+#: model_terms:ir.ui.view,arch_db:wd_evidence_album.view_evidence_album_form
+msgid "Add Page"
+msgstr "添加页面"
+
+#. module: wd_evidence_album
+#: model_terms:ir.ui.view,arch_db:wd_evidence_album.view_source_items_wizard_form
+msgid "Add Source Attachments"
+msgstr "添加来源附件"
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_config_settings__snailmail_cover
+msgid "Add a Cover Page"
+msgstr ""
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,help:wd_evidence_album.field_wd_evidence_album_config_settings__tenor_api_key
+msgid ""
+"Add a Klipy GIF API key to enable GIFs support. https://docs.klipy.com/getting-started\n"
+"If you were using a Tenor GIF API key (service shutdown on June 30, 2026), please replace it here with a Klipy GIF API key"
+msgstr ""
+
+#. module: wd_evidence_album
+#: model:ir.model,name:wd_evidence_album.model_wd_evidence_album_source_items_wizard
+msgid "Add source attachments to evidence page"
+msgstr "将来源附件添加到证据页面"
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_create_page_upload_wizard__album_id
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_extend_validity_wizard__album_id
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_item__album_id
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_page__album_id
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_source_page_wizard__album_id
+msgid "Album"
+msgstr "相册"
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album__album_number
+msgid "Album Number"
+msgstr "相册编号"
+
+#. module: wd_evidence_album
+#: model:ir.ui.menu,name:wd_evidence_album.menu_evidence_album_albums
+msgid "Albums"
+msgstr "相册"
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_config_settings__alias_domain_id
+msgid "Alias Domain"
+msgstr ""
+
+#. module: wd_evidence_album
+#. odoo-javascript
+#: code:addons/wd_evidence_album/static/src/xml/evidence_album_viewer.xml:0
+msgid "All"
+msgstr "全部"
+
+#. module: wd_evidence_album
+#: model_terms:ir.ui.view,arch_db:wd_evidence_album.view_evidence_album_settings_form
+msgid "All values must be positive. Changes apply to new ZIP requests."
+msgstr "所有值必须为正数。更改将应用于新的 ZIP 请求。"
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_config_settings__module_mail_plugin
+msgid "Allow integration with the mail plugins"
+msgstr ""
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_config_settings__module_google_calendar
+msgid "Allow the users to synchronize their calendar  with Google Calendar"
+msgstr ""
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_config_settings__module_microsoft_calendar
+msgid "Allow the users to synchronize their calendar with Outlook Calendar"
+msgstr ""
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_config_settings__module_base_import
+msgid "Allow users to import data from CSV/XLS/XLSX/ODS files"
+msgstr ""
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,help:wd_evidence_album.field_wd_evidence_album_config_settings__group_multi_currency
+msgid "Allows to work in a multi currency environment"
+msgstr ""
+
+#. module: wd_evidence_album
+#: model:ir.model.constraint,message:wd_evidence_album.constraint_wd_evidence_album_item_wd_evidence_album_item_album_attachment_uniq
+msgid "An attachment can only appear once in an album."
+msgstr "同一附件在一个相册中只能出现一次。"
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_config_settings__unsplash_app_id
+msgid "Application ID"
+msgstr ""
+
+#. module: wd_evidence_album
+#: model:ir.model,name:wd_evidence_album.model_ir_attachment
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_item__attachment_id
+msgid "Attachment"
+msgstr "附件"
+
+#. module: wd_evidence_album
+#: model_terms:ir.ui.view,arch_db:wd_evidence_album.view_source_items_wizard_form
+#: model_terms:ir.ui.view,arch_db:wd_evidence_album.view_source_page_wizard_form
+msgid "Attachments from configured field"
+msgstr "来自已配置字段的附件"
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_item__availability_state
+msgid "Availability State"
+msgstr "可用状态"
+
+#. module: wd_evidence_album
+#: model:ir.model.fields.selection,name:wd_evidence_album.selection__wd_evidence_album_item__availability_state__available
+msgid "Available"
+msgstr "可用"
+
+#. module: wd_evidence_album
+#: model_terms:ir.ui.view,arch_db:wd_evidence_album.view_evidence_album_form
+msgid "Back to Confirmed"
+msgstr "退回已确认"
+
+#. module: wd_evidence_album
+#: model_terms:ir.ui.view,arch_db:wd_evidence_album.view_evidence_album_form
+msgid "Back to Draft"
+msgstr "退回草稿"
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,help:wd_evidence_album.field_wd_evidence_album_config_settings__sfu_server_key
+msgid "Base64 encoded key"
+msgstr ""
+
+#. module: wd_evidence_album
+#: model_terms:ir.ui.view,arch_db:wd_evidence_album.view_evidence_album_form
+msgid "Basic Information"
+msgstr "基本信息"
+
+#. module: wd_evidence_album
+#: model:ir.model.fields.selection,name:wd_evidence_album.selection__wd_evidence_album_item__source_type__record
+msgid "Business Record"
+msgstr "业务记录"
+
+#. module: wd_evidence_album
+#: model_terms:ir.ui.view,arch_db:wd_evidence_album.view_create_page_upload_wizard_form
+#: model_terms:ir.ui.view,arch_db:wd_evidence_album.view_evidence_album_settings_form
+#: model_terms:ir.ui.view,arch_db:wd_evidence_album.view_extend_validity_wizard_form
+#: model_terms:ir.ui.view,arch_db:wd_evidence_album.view_source_items_wizard_form
+#: model_terms:ir.ui.view,arch_db:wd_evidence_album.view_source_page_wizard_form
+#: model_terms:ir.ui.view,arch_db:wd_evidence_album.view_upload_wizard_form
+msgid "Cancel"
+msgstr "取消"
+
+#. module: wd_evidence_album
+#. odoo-javascript
+#: code:addons/wd_evidence_album/static/src/xml/evidence_media_upload.xml:0
+#: code:addons/wd_evidence_album/static/src/xml/evidence_page_media_gallery.xml:0
+msgid "Choose photos and videos"
+msgstr "选择照片和视频"
+
+#. module: wd_evidence_album
+#. odoo-javascript
+#: code:addons/wd_evidence_album/static/src/xml/evidence_page_media_gallery.xml:0
+msgid "Close preview"
+msgstr "关闭预览"
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_config_settings__module_website_cf_turnstile
+msgid "Cloudflare Turnstile"
+msgstr ""
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_config_settings__company_id
+msgid "Company"
+msgstr ""
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_config_settings__company_country_code
+msgid "Company Country Code"
+msgstr ""
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_config_settings__company_informations
+msgid "Company Informations"
+msgstr ""
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_config_settings__company_name
+msgid "Company Name"
+msgstr ""
+
+#. module: wd_evidence_album
+#: model:ir.ui.menu,name:wd_evidence_album.menu_evidence_album_configuration
+msgid "Configuration"
+msgstr "配置"
+
+#. module: wd_evidence_album
+#: model_terms:ir.ui.view,arch_db:wd_evidence_album.view_evidence_album_form
+msgid "Confirm"
+msgstr "确认"
+
+#. module: wd_evidence_album
+#: model:ir.model.fields.selection,name:wd_evidence_album.selection__wd_evidence_album__state__confirmed
+msgid "Confirmed"
+msgstr "已确认"
+
+#. module: wd_evidence_album
+#: model_terms:ir.ui.view,arch_db:wd_evidence_album.view_source_page_wizard_form
+msgid "Create Page"
+msgstr "创建页面"
+
+#. module: wd_evidence_album
+#: model_terms:ir.ui.view,arch_db:wd_evidence_album.view_evidence_album_form
+msgid "Create Page & Upload Media"
+msgstr "创建页面并上传媒体"
+
+#. module: wd_evidence_album
+#: model_terms:ir.ui.view,arch_db:wd_evidence_album.view_create_page_upload_wizard_form
+msgid "Create Page and Upload"
+msgstr "创建页面并上传"
+
+#. module: wd_evidence_album
+#: model_terms:ir.ui.view,arch_db:wd_evidence_album.view_create_page_upload_wizard_form
+msgid "Create Page and Upload Media"
+msgstr "创建页面并上传媒体"
+
+#. module: wd_evidence_album
+#: model_terms:ir.ui.view,arch_db:wd_evidence_album.view_evidence_album_form
+#: model_terms:ir.ui.view,arch_db:wd_evidence_album.view_source_page_wizard_form
+msgid "Create Page from Source"
+msgstr "从来源创建页面"
+
+#. module: wd_evidence_album
+#: model:ir.model,name:wd_evidence_album.model_wd_evidence_album_create_page_upload_wizard
+msgid "Create evidence album page and upload media"
+msgstr "创建证据相册页面并上传媒体"
+
+#. module: wd_evidence_album
+#: model:ir.model,name:wd_evidence_album.model_wd_evidence_album_source_page_wizard
+msgid "Create evidence album page from source"
+msgstr "从来源创建证据相册页面"
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album__create_uid
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_config_settings__create_uid
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_create_page_upload_wizard__create_uid
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_extend_validity_wizard__create_uid
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_item__create_uid
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_page__create_uid
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_source_config__create_uid
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_source_items_wizard__create_uid
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_source_page_wizard__create_uid
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_source_record_option__create_uid
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_upload_wizard__create_uid
+msgid "Created by"
+msgstr "创建人"
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album__create_date
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_config_settings__create_date
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_create_page_upload_wizard__create_date
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_extend_validity_wizard__create_date
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_item__create_date
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_page__create_date
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_source_config__create_date
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_source_items_wizard__create_date
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_source_page_wizard__create_date
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_source_record_option__create_date
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_upload_wizard__create_date
+msgid "Created on"
+msgstr "创建时间"
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_config_settings__report_footer
+msgid "Custom Report Footer"
+msgstr ""
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album__customer_id
+#: model_terms:ir.ui.view,arch_db:wd_evidence_album.view_evidence_album_search
+msgid "Customer"
+msgstr "客户"
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_config_settings__portal_allow_api_keys
+msgid "Customer API Keys"
+msgstr ""
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_config_settings__auth_signup_uninvited
+msgid "Customer Account"
+msgstr ""
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_config_settings__user_default_rights
+msgid "Default Access Rights"
+msgstr ""
+
+#. module: wd_evidence_album
+#. odoo-javascript
+#: code:addons/wd_evidence_album/static/src/xml/evidence_page_media_gallery.xml:0
+msgid "Delete"
+msgstr "删除"
+
+#. module: wd_evidence_album
+#. odoo-javascript
+#: code:addons/wd_evidence_album/static/src/xml/evidence_page_media_gallery.xml:0
+msgid "Delete media"
+msgstr "删除媒体"
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album__description
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_create_page_upload_wizard__description
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_page__description
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_source_page_wizard__description
+msgid "Description"
+msgstr "描述"
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_source_config__description_field_name
+msgid "Description Field Name"
+msgstr "描述字段名称"
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_config_settings__digest_id
+msgid "Digest Email"
+msgstr ""
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_config_settings__digest_emails
+msgid "Digest Emails"
+msgstr ""
+
+#. module: wd_evidence_album
+#: model:ir.model.fields.selection,name:wd_evidence_album.selection__wd_evidence_album_item__source_type__upload
+msgid "Direct Upload"
+msgstr "直接上传"
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album__display_name
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_config_settings__display_name
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_create_page_upload_wizard__display_name
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_extend_validity_wizard__display_name
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_item__display_name
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_page__display_name
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_source_config__display_name
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_source_items_wizard__display_name
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_source_page_wizard__display_name
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_source_record_option__display_name
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_upload_wizard__display_name
+msgid "Display Name"
+msgstr "显示名称"
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_config_settings__external_report_layout_id
+msgid "Document Template"
+msgstr ""
+
+#. module: wd_evidence_album
+#. odoo-javascript
+#: code:addons/wd_evidence_album/static/src/xml/evidence_page_media_gallery.xml:0
+msgid "Download"
+msgstr "下载"
+
+#. module: wd_evidence_album
+#. odoo-javascript
+#: code:addons/wd_evidence_album/static/src/xml/evidence_page_media_gallery.xml:0
+msgid "Download media"
+msgstr "下载媒体"
+
+#. module: wd_evidence_album
+#: model:ir.model.fields.selection,name:wd_evidence_album.selection__wd_evidence_album__state__draft
+#: model_terms:ir.ui.view,arch_db:wd_evidence_album.view_evidence_album_search
+msgid "Draft"
+msgstr "草稿"
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_config_settings__email_secondary_color
+msgid "Email Button Color"
+msgstr ""
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_config_settings__email_primary_color
+msgid "Email Header Color"
+msgstr ""
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_config_settings__auth_signup_reset_password
+msgid "Enable password reset from Login page"
+msgstr ""
+
+#. module: wd_evidence_album
+#. odoo-javascript
+#: code:addons/wd_evidence_album/static/src/xml/evidence_page_media_gallery.xml:0
+msgid "Enlarge"
+msgstr "放大"
+
+#. module: wd_evidence_album
+#. odoo-javascript
+#: code:addons/wd_evidence_album/static/src/xml/evidence_page_media_gallery.xml:0
+msgid "Enlarge media"
+msgstr "放大媒体"
+
+#. module: wd_evidence_album
+#: model:ir.actions.act_window,name:wd_evidence_album.action_evidence_album_source_config
+msgid "Evidence Sources"
+msgstr "证据来源"
+
+#. module: wd_evidence_album
+#: model_terms:ir.ui.view,arch_db:wd_evidence_album.view_extend_validity_wizard_form
+msgid "Extend Album Validity"
+msgstr "延长相册有效期"
+
+#. module: wd_evidence_album
+#: model_terms:ir.ui.view,arch_db:wd_evidence_album.view_evidence_album_form
+#: model_terms:ir.ui.view,arch_db:wd_evidence_album.view_extend_validity_wizard_form
+msgid "Extend Validity"
+msgstr "延长有效期"
+
+#. module: wd_evidence_album
+#: model:ir.model,name:wd_evidence_album.model_wd_evidence_album_extend_validity_wizard
+msgid "Extend evidence album validity"
+msgstr "延长证据相册有效期"
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_config_settings__fail_counter
+msgid "Fail Mail"
+msgstr ""
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,help:wd_evidence_album.field_wd_evidence_album_config_settings__tenor_gif_limit
+msgid "Fetch up to the specified number of GIF."
+msgstr ""
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_source_config__field_name
+msgid "Field Name"
+msgstr "字段名称"
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_create_page_upload_wizard__attachment_ids
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_upload_wizard__attachment_ids
+#: model_terms:ir.ui.view,arch_db:wd_evidence_album.view_create_page_upload_wizard_form
+#: model_terms:ir.ui.view,arch_db:wd_evidence_album.view_upload_wizard_form
+msgid "Files"
+msgstr "文件"
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,help:wd_evidence_album.field_wd_evidence_album_config_settings__report_footer
+msgid "Footer text displayed at the bottom of all reports."
+msgstr ""
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_config_settings__module_base_geolocalize
+msgid "GeoLocalize"
+msgstr ""
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_config_settings__module_product_images
+msgid "Get product pictures using barcode"
+msgstr ""
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_config_settings__google_gmail_client_identifier
+msgid "Gmail Client Id"
+msgstr ""
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_config_settings__google_gmail_client_secret
+msgid "Gmail Client Secret"
+msgstr ""
+
+#. module: wd_evidence_album
+#: model_terms:ir.ui.view,arch_db:wd_evidence_album.view_evidence_album_search
+msgid "Group By"
+msgstr "分组"
+
+#. module: wd_evidence_album
+#: model_terms:ir.ui.view,arch_db:wd_evidence_album.view_evidence_album_search
+msgid "Has Expiry"
+msgstr "有有效期"
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album__id
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_config_settings__id
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_create_page_upload_wizard__id
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_extend_validity_wizard__id
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_item__id
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_page__id
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_source_config__id
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_source_items_wizard__id
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_source_page_wizard__id
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_source_record_option__id
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_upload_wizard__id
+msgid "ID"
+msgstr "ID"
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,help:wd_evidence_album.field_wd_evidence_album_config_settings__alias_domain_id
+msgid ""
+"If you have setup a catch-all email domain redirected to the Odoo server, "
+"enter the domain name here."
+msgstr ""
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,help:wd_evidence_album.field_wd_evidence_album_config_settings__use_twilio_rtc_servers
+msgid "If you want to use twilio as TURN/STUN server provider"
+msgstr ""
+
+#. module: wd_evidence_album
+#: model:ir.model.fields.selection,name:wd_evidence_album.selection__wd_evidence_album_item__media_type__image
+msgid "Image"
+msgstr "图片"
+
+#. module: wd_evidence_album
+#. odoo-javascript
+#: code:addons/wd_evidence_album/static/src/xml/evidence_album_viewer.xml:0
+msgid "Images"
+msgstr "图片"
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_config_settings__partner_autocomplete_insufficient_credit
+msgid "Insufficient credit"
+msgstr ""
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_config_settings__is_root_company
+msgid "Is Root Company"
+msgstr ""
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_page__item_ids
+msgid "Items"
+msgstr "媒体项"
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_config_settings__tenor_api_key
+msgid "Klipy API key"
+msgstr ""
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_config_settings__tenor_gif_limit
+msgid "Klipy GIF limits"
+msgstr ""
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_config_settings__tenor_content_filter
+msgid "Klipy content filter"
+msgstr ""
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_config_settings__module_auth_ldap
+msgid "LDAP Authentication"
+msgstr ""
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_source_config__label
+msgid "Label"
+msgstr "标签"
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album__write_uid
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_config_settings__write_uid
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_create_page_upload_wizard__write_uid
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_extend_validity_wizard__write_uid
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_item__write_uid
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_page__write_uid
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_source_config__write_uid
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_source_items_wizard__write_uid
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_source_page_wizard__write_uid
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_source_record_option__write_uid
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_upload_wizard__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album__write_date
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_config_settings__write_date
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_create_page_upload_wizard__write_date
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_extend_validity_wizard__write_date
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_item__write_date
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_page__write_date
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_source_config__write_date
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_source_items_wizard__write_date
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_source_page_wizard__write_date
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_source_record_option__write_date
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_upload_wizard__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_config_settings__module_account_inter_company_rules
+msgid "Manage Inter Company"
+msgstr ""
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_config_settings__zip_max_files
+msgid "Maximum ZIP files"
+msgstr "ZIP 最大文件数"
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_config_settings__zip_max_memory_bytes
+msgid "Maximum ZIP memory bytes"
+msgstr "ZIP 最大内存字节数"
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_config_settings__zip_max_total_bytes
+msgid "Maximum ZIP total bytes"
+msgstr "ZIP 最大总字节数"
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_config_settings__zip_max_concurrency
+msgid "Maximum concurrent ZIP downloads"
+msgstr "ZIP 最大并发下载数"
+
+#. module: wd_evidence_album
+#: model:ir.model,name:wd_evidence_album.model_wd_evidence_album
+msgid "Media Album"
+msgstr "媒体相册"
+
+#. module: wd_evidence_album
+#: model:ir.model,name:wd_evidence_album.model_wd_evidence_album_item
+msgid "Media Album Item"
+msgstr "媒体相册媒体项"
+
+#. module: wd_evidence_album
+#: model:ir.model,name:wd_evidence_album.model_wd_evidence_album_page
+msgid "Media Album Page"
+msgstr "媒体相册页面"
+
+#. module: wd_evidence_album
+#: model:ir.model,name:wd_evidence_album.model_wd_evidence_album_config_settings
+msgid "Media Album Settings"
+msgstr "媒体相册设置"
+
+#. module: wd_evidence_album
+#: model:ir.model,name:wd_evidence_album.model_wd_evidence_album_source_config
+msgid "Media Album Source Configuration"
+msgstr "媒体相册来源配置"
+
+#. module: wd_evidence_album
+#: model:ir.model,name:wd_evidence_album.model_wd_evidence_album_source_record_option
+msgid "Media Album Source Record Option"
+msgstr "媒体相册来源记录选项"
+
+#. module: wd_evidence_album
+#: model_terms:ir.ui.view,arch_db:wd_evidence_album.view_evidence_album_settings_form
+msgid "Media Album ZIP Settings"
+msgstr "媒体相册 ZIP 设置"
+
+#. module: wd_evidence_album
+#: model:ir.model,name:wd_evidence_album.model_wd_evidence_album_media
+msgid "Media Album media services"
+msgstr "媒体相册媒体服务"
+
+#. module: wd_evidence_album
+#: model:ir.actions.act_window,name:wd_evidence_album.action_evidence_album
+#: model:ir.ui.menu,name:wd_evidence_album.menu_evidence_album_root
+#: model_terms:ir.ui.view,arch_db:wd_evidence_album.portal_my_home_evidence_albums
+#: model_terms:ir.ui.view,arch_db:wd_evidence_album.portal_my_home_menu_evidence_albums
+msgid "Media Albums"
+msgstr "媒体相册"
+
+#. module: wd_evidence_album
+#: model:ir.ui.menu,name:wd_evidence_album.menu_evidence_album_sources
+msgid "Media Sources"
+msgstr "媒体来源"
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_item__media_type
+msgid "Media Type"
+msgstr "媒体类型"
+
+#. module: wd_evidence_album
+#: model_terms:ir.ui.view,arch_db:wd_evidence_album.portal_album_list
+msgid "Media albums"
+msgstr "媒体相册"
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_config_settings__google_translate_api_key
+msgid "Message Translation API Key"
+msgstr ""
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_source_config__model_id
+msgid "Model"
+msgstr "模型"
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_config_settings__group_multi_currency
+msgid "Multi-Currencies"
+msgstr ""
+
+#. module: wd_evidence_album
+#: model_terms:ir.ui.view,arch_db:wd_evidence_album.view_evidence_album_search
+msgid "My Albums"
+msgstr "我的相册"
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album__name
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_source_record_option__name
+msgid "Name"
+msgstr "名称"
+
+#. module: wd_evidence_album
+#: model_terms:ir.ui.view,arch_db:wd_evidence_album.portal_album_list
+msgid "Name A-Z"
+msgstr "名称 A-Z"
+
+#. module: wd_evidence_album
+#: model_terms:ir.ui.view,arch_db:wd_evidence_album.portal_album_list
+msgid "Name Z-A"
+msgstr "名称 Z-A"
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_extend_validity_wizard__valid_until
+msgid "New valid until"
+msgstr "新的有效期截止日期"
+
+#. module: wd_evidence_album
+#: model_terms:ir.ui.view,arch_db:wd_evidence_album.portal_album_list
+msgid "Newest"
+msgstr "最新"
+
+#. module: wd_evidence_album
+#: model_terms:ir.ui.view,arch_db:wd_evidence_album.portal_album_list
+msgid "Next"
+msgstr "下一页"
+
+#. module: wd_evidence_album
+#. odoo-javascript
+#: code:addons/wd_evidence_album/static/src/xml/evidence_page_media_gallery.xml:0
+msgid "No media has been added to this page."
+msgstr "此页面尚未添加媒体。"
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_item__note
+msgid "Note"
+msgstr "备注"
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_config_settings__active_user_count
+msgid "Number of Active Users"
+msgstr ""
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_config_settings__company_count
+msgid "Number of Companies"
+msgstr ""
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_config_settings__language_count
+msgid "Number of Languages"
+msgstr ""
+
+#. module: wd_evidence_album
+#: model_terms:ir.ui.view,arch_db:wd_evidence_album.portal_album_list
+msgid "Oldest"
+msgstr "最早"
+
+#. module: wd_evidence_album
+#: model_terms:ir.ui.view,arch_db:wd_evidence_album.view_evidence_album_source_config_form
+msgid ""
+"Only explicitly enabled configurations are available to later source "
+"resolvers."
+msgstr ""
+
+#. module: wd_evidence_album
+#: model_terms:ir.ui.view,arch_db:wd_evidence_album.view_evidence_album_form
+msgid "Open"
+msgstr "打开"
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,help:wd_evidence_album.field_wd_evidence_album_source_config__field_id
+msgid "Optional UI helper to pick an existing field on the selected model."
+msgstr ""
+
+#. module: wd_evidence_album
+#. odoo-javascript
+#: code:addons/wd_evidence_album/static/src/xml/evidence_album_viewer.xml:0
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_item__page_id
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_source_items_wizard__page_id
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_upload_wizard__page_id
+#: model_terms:ir.ui.view,arch_db:wd_evidence_album.portal_album_list
+msgid "Page"
+msgstr "页面"
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album__page_ids
+#: model_terms:ir.ui.view,arch_db:wd_evidence_album.view_evidence_album_form
+msgid "Pages"
+msgstr "页面"
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_config_settings__module_partner_autocomplete
+msgid "Partner Autocomplete"
+msgstr ""
+
+#. module: wd_evidence_album
+#: model_terms:ir.ui.view,arch_db:wd_evidence_album.portal_album
+msgid "Portal Preview — Not Published"
+msgstr "Portal 预览 — 尚未发布"
+
+#. module: wd_evidence_album
+#: model_terms:ir.ui.view,arch_db:wd_evidence_album.view_evidence_album_form
+msgid "Preview Portal"
+msgstr "预览 Portal"
+
+#. module: wd_evidence_album
+#: model_terms:ir.ui.view,arch_db:wd_evidence_album.portal_album_list
+msgid "Previous"
+msgstr "上一页"
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_config_settings__group_product_pricelist
+msgid "Pricelists"
+msgstr ""
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_config_settings__snailmail_duplex
+msgid "Print Both sides"
+msgstr ""
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_config_settings__snailmail_color
+msgid "Print In Color"
+msgstr ""
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_config_settings__group_stock_packaging
+msgid "Product Packagings"
+msgstr ""
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_config_settings__profiling_enabled_until
+msgid "Profiling enabled until"
+msgstr ""
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_config_settings__module_loyalty
+msgid "Promotions, Coupons, Gift Card & Loyalty Program"
+msgstr ""
+
+#. module: wd_evidence_album
+#: model_terms:ir.ui.view,arch_db:wd_evidence_album.view_evidence_album_form
+msgid "Publish"
+msgstr "发布"
+
+#. module: wd_evidence_album
+#: model:ir.model.fields.selection,name:wd_evidence_album.selection__wd_evidence_album__state__published
+#: model_terms:ir.ui.view,arch_db:wd_evidence_album.portal_album_list
+#: model_terms:ir.ui.view,arch_db:wd_evidence_album.view_evidence_album_search
+msgid "Published"
+msgstr "已发布"
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album__published_at
+msgid "Published At"
+msgstr "发布时间"
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_source_record_option__record_ref
+msgid "Record Ref"
+msgstr "记录引用"
+
+#. module: wd_evidence_album
+#. odoo-javascript
+#: code:addons/wd_evidence_album/static/src/xml/evidence_media_upload.xml:0
+msgid "Remove file"
+msgstr "移除文件"
+
+#. module: wd_evidence_album
+#: model_terms:ir.ui.view,arch_db:wd_evidence_album.view_evidence_album_form
+msgid "Reset Token"
+msgstr "重置令牌"
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_config_settings__restrict_template_rendering
+msgid "Restrict Template Rendering"
+msgstr ""
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album__reviewed_by
+msgid "Reviewed By"
+msgstr "审核人"
+
+#. module: wd_evidence_album
+#: model_terms:ir.ui.view,arch_db:wd_evidence_album.view_evidence_album_form
+msgid "Revoke"
+msgstr "撤销"
+
+#. module: wd_evidence_album
+#: model:ir.model.fields.selection,name:wd_evidence_album.selection__wd_evidence_album__state__revoked
+msgid "Revoked"
+msgstr "已撤销"
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album__revoked_at
+msgid "Revoked At"
+msgstr "撤销时间"
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_config_settings__sfu_server_url
+msgid "SFU Server URL"
+msgstr ""
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_config_settings__sfu_server_key
+msgid "SFU Server key"
+msgstr ""
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_config_settings__module_sms
+msgid "SMS"
+msgstr ""
+
+#. module: wd_evidence_album
+#: model_terms:ir.ui.view,arch_db:wd_evidence_album.view_evidence_album_settings_form
+msgid "Save"
+msgstr "保存"
+
+#. module: wd_evidence_album
+#. odoo-javascript
+#: code:addons/wd_evidence_album/static/src/xml/evidence_page_media_gallery.xml:0
+msgid "Save the Page before uploading media."
+msgstr "请先保存页面，再上传媒体。"
+
+#. module: wd_evidence_album
+#: model_terms:ir.ui.view,arch_db:wd_evidence_album.view_evidence_album_form
+msgid "Save the album before adding pages or media."
+msgstr "请先保存相册，再添加页面或媒体。"
+
+#. module: wd_evidence_album
+#: model_terms:ir.ui.view,arch_db:wd_evidence_album.portal_album_list
+msgid "Search albums"
+msgstr "搜索相册"
+
+#. module: wd_evidence_album
+#: model_terms:ir.ui.view,arch_db:wd_evidence_album.portal_album_list
+msgid "Search albums..."
+msgstr "搜索相册..."
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_source_items_wizard__attachment_ids
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_source_page_wizard__attachment_ids
+msgid "Selected attachments"
+msgstr "已选附件"
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_item__sequence
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_page__sequence
+msgid "Sequence"
+msgstr "序号"
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_config_settings__show_effect
+msgid "Show Effect"
+msgstr ""
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_config_settings__snailmail_cover_readonly
+msgid "Snailmail Cover Readonly"
+msgstr ""
+
+#. module: wd_evidence_album
+#: model_terms:ir.ui.view,arch_db:wd_evidence_album.portal_album_list
+msgid "Sort albums"
+msgstr "排序相册"
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_source_items_wizard__source_config_id
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_source_page_wizard__source_config_id
+msgid "Source Config"
+msgstr "来源配置"
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_source_config__field_id
+msgid "Source Field Candidate"
+msgstr "来源字段候选"
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_item__source_field_name
+msgid "Source Field Name"
+msgstr "来源字段名称"
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_item__source_model
+msgid "Source Model"
+msgstr "来源模型"
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_item__source_record_id
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_source_items_wizard__source_record_option_id
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_source_page_wizard__source_record_option_id
+#: model_terms:ir.ui.view,arch_db:wd_evidence_album.view_source_items_wizard_form
+#: model_terms:ir.ui.view,arch_db:wd_evidence_album.view_source_page_wizard_form
+msgid "Source Record"
+msgstr "来源记录"
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_item__source_type
+msgid "Source Type"
+msgstr "来源类型"
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album__state
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_page__album_state
+#: model_terms:ir.ui.view,arch_db:wd_evidence_album.view_evidence_album_search
+msgid "State"
+msgstr "状态"
+
+#. module: wd_evidence_album
+#: model_terms:ir.ui.view,arch_db:wd_evidence_album.view_evidence_album_form
+msgid "Status Information"
+msgstr "状态信息"
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_config_settings__module_google_gmail
+msgid "Support Gmail Authentication"
+msgstr ""
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_config_settings__module_microsoft_outlook
+msgid "Support Outlook Authentication"
+msgstr ""
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_config_settings__auth_signup_template_user_id
+msgid "Template user for new users created through signup"
+msgstr ""
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,help:wd_evidence_album.field_wd_evidence_album_config_settings__company_country_code
+msgid ""
+"The ISO country code in two chars. \n"
+"You can use this field for quick search."
+msgstr ""
+
+#. module: wd_evidence_album
+#: model:ir.model.constraint,message:wd_evidence_album.constraint_wd_evidence_album_wd_evidence_album_number_uniq
+msgid "The album number must be unique."
+msgstr "相册编号必须唯一。"
+
+#. module: wd_evidence_album
+#: model:ir.model.constraint,message:wd_evidence_album.constraint_wd_evidence_album_wd_evidence_album_token_uniq
+msgid "The album token must be unique."
+msgstr "相册令牌必须唯一。"
+
+#. module: wd_evidence_album
+#: model:ir.model.constraint,message:wd_evidence_album.constraint_wd_evidence_album_source_config_wd_evidence_album_source_model_field_uniq
+msgid "The source model and field combination must be unique."
+msgstr "来源模型和字段组合必须唯一。"
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_create_page_upload_wizard__title
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_page__title
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_source_page_wizard__title
+msgid "Title"
+msgstr "标题"
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_source_config__title_field_name
+msgid "Title Field Name"
+msgstr "标题字段名称"
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album__token
+msgid "Token"
+msgstr "令牌"
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_config_settings__twilio_account_token
+msgid "Twilio Account Auth Token"
+msgstr ""
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_config_settings__twilio_account_sid
+msgid "Twilio Account SID"
+msgstr ""
+
+#. module: wd_evidence_album
+#: model:ir.model.fields.selection,name:wd_evidence_album.selection__wd_evidence_album_item__availability_state__unavailable
+msgid "Unavailable"
+msgstr "不可用"
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_config_settings__group_uom
+msgid "Units of Measure"
+msgstr ""
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_config_settings__module_web_unsplash
+msgid "Unsplash Image Library"
+msgstr ""
+
+#. module: wd_evidence_album
+#: model_terms:ir.ui.view,arch_db:wd_evidence_album.view_upload_wizard_form
+msgid "Upload"
+msgstr "上传"
+
+#. module: wd_evidence_album
+#: model_terms:ir.ui.view,arch_db:wd_evidence_album.view_upload_wizard_form
+msgid "Upload Media"
+msgstr "上传媒体"
+
+#. module: wd_evidence_album
+#: model:ir.model,name:wd_evidence_album.model_wd_evidence_album_upload_wizard
+msgid "Upload evidence album media"
+msgstr "上传证据相册媒体"
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_config_settings__external_email_server_default
+msgid "Use Custom Email Servers"
+msgstr ""
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_config_settings__use_twilio_rtc_servers
+msgid "Use Twilio ICE servers"
+msgstr ""
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_source_page_wizard__select_all
+msgid "Use all current attachments"
+msgstr ""
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_config_settings__module_auth_oauth
+msgid "Use external authentication providers (OAuth)"
+msgstr ""
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,help:wd_evidence_album.field_wd_evidence_album_config_settings__restrict_template_rendering
+msgid ""
+"Users will still be able to render templates.\n"
+"However only Mail Template Editors will be able to create new dynamic templates or modify existing ones."
+msgstr ""
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album__valid_until
+msgid "Valid Until"
+msgstr "有效期截止日期"
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_config_settings__group_product_variant
+msgid "Variants"
+msgstr ""
+
+#. module: wd_evidence_album
+#: model:ir.model.fields.selection,name:wd_evidence_album.selection__wd_evidence_album_item__media_type__video
+#: model_terms:ir.ui.view,arch_db:wd_evidence_album.portal_album
+msgid "Video"
+msgstr "视频"
+
+#. module: wd_evidence_album
+#. odoo-javascript
+#: code:addons/wd_evidence_album/static/src/xml/evidence_album_viewer.xml:0
+msgid "Videos"
+msgstr "视频"
+
+#. module: wd_evidence_album
+#: model_terms:ir.ui.view,arch_db:wd_evidence_album.portal_my_home_evidence_albums
+msgid "View your published evidence albums"
+msgstr "查看已发布的证据相册"
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_config_settings__module_voip
+msgid "VoIP"
+msgstr ""
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_config_settings__product_volume_volume_in_cubic_feet
+msgid "Volume unit of measure"
+msgstr ""
+
+#. module: wd_evidence_album
+#: model:res.groups,name:wd_evidence_album.group_album_manager
+msgid "WMS Media Album Manager"
+msgstr "WMS 媒体相册管理员"
+
+#. module: wd_evidence_album
+#: model:res.groups,name:wd_evidence_album.group_album_reviewer
+msgid "WMS Media Album Reviewer"
+msgstr "WMS 媒体相册审核员"
+
+#. module: wd_evidence_album
+#: model:res.groups,name:wd_evidence_album.group_album_user
+msgid "WMS Media Album User"
+msgstr "WMS 媒体相册用户"
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_config_settings__web_app_name
+msgid "Web App Name"
+msgstr ""
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_config_settings__product_weight_in_lbs
+msgid "Weight unit of measure"
+msgstr ""
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_source_items_wizard__wizard_token
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_source_page_wizard__wizard_token
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_source_record_option__wizard_token
+msgid "Wizard Token"
+msgstr "向导令牌"
+
+#. module: wd_evidence_album
+#: model:ir.actions.act_window,name:wd_evidence_album.action_evidence_album_settings
+#: model:ir.ui.menu,name:wd_evidence_album.menu_evidence_album_settings
+msgid "ZIP Settings"
+msgstr "ZIP 设置"
+
+#. module: wd_evidence_album
+#: model_terms:ir.ui.view,arch_db:wd_evidence_album.view_evidence_album_settings_form
+msgid "ZIP resource limits"
+msgstr "ZIP 资源限制"
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_config_settings__zip_timeout_seconds
+msgid "ZIP timeout (seconds)"
+msgstr "ZIP 超时（秒）"
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,help:wd_evidence_album.field_wd_evidence_album_config_settings__tenor_content_filter
+msgid "https://docs.klipy.com/migrate-from-tenor/content-filtering"
+msgstr ""
+
+#. module: wd_evidence_album
+#: model_terms:ir.ui.view,arch_db:wd_evidence_album.portal_album_list
+msgid "of"
+msgstr "共"
+
+#. module: wd_evidence_album
+#: model:ir.model.fields,field_description:wd_evidence_album.field_wd_evidence_album_config_settings__module_google_recaptcha
+msgid "reCAPTCHA"
+msgstr ""
+
+#. module: wd_evidence_album
+#: model_terms:ir.ui.view,arch_db:wd_evidence_album.portal_album
+msgid "← All albums"
+msgstr "← 所有相册"
+
+#. module: wd_evidence_album
+#: model_terms:ir.ui.view,arch_db:wd_evidence_album.portal_album
+msgid "← Back to Album"
+msgstr "← 返回相册"
+
+#. #. odoo-javascript
+msgid "Filter media"
+msgstr "筛选媒体"
+
+#. #. odoo-javascript
+msgid "Select all"
+msgstr "全选"
+
+#. #. odoo-javascript
+msgid "The selected media could not be downloaded."
+msgstr "无法下载所选媒体。"
+
+#. #. odoo-javascript
+msgid "Could not upload the media."
+msgstr "无法上传媒体。"
+
+#. #. odoo-javascript
+msgid "Could not remove the media."
+msgstr "无法移除媒体。"
