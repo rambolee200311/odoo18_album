@@ -8,7 +8,7 @@
 | PCR ID | `PCR-20260929-001` |
 | 项目 | `wd_evidence_album` |
 | PCR 版本 | v1.0.0 |
-| 状态 | BLOCKED — Project Final Review required |
+| 状态 | Frozen — Approved with Accepted Residual Risks |
 | 日期 | 2026-09-29 |
 | 上游 PVR | [PVR-20260929-001](./wd_evidence_album_PVR_v1.0.0.md) |
 
@@ -50,16 +50,16 @@ PCR 基于 PVR 事实作 Closure Assessment，不重新采集验证证据，也�
 
 | Closure Obligation | Assessment | Blocking Issue |
 |---|---|---|
-| Final Authority Baseline valid | BLOCKED | 当前组织要求的最终版本文件未提供 |
+| Final Authority Baseline valid | SATISFIED WITH ACCEPTED RISK | 项目负责人授权当前 SRS/TDD v1.0.0 作为 v1.0 Final Authority Baseline；DDD N/A |
 | Final Code Baseline valid | SATISFIED | `7376344` 已形成 |
-| SRS Normative Coverage | BLOCKED | CC-01 HVR、CC-06 上游 BR 和项目级覆盖仍有缺口 |
-| Coding Closure completeness | BLOCKED | CC-01 FR 为 BLOCKED |
-| Final Regression Assessment | NOT SATISFIED | 仅完成定向回归 |
-| E2E / UAT | SATISFIED WITH FOLLOW-UP | 主要 CC 已有 HVR，CC-01 证据治理仍不完整 |
-| Cross-feature Integration | SATISFIED WITH FOLLOW-UP | CC-04/06/07 回归已有证据，未执行统一全量套件 |
-| DDD/TDD Coverage | BLOCKED | TDD-Q-008 和 Final Authority 版本需确认 |
-| Permission Verification | SATISFIED WITH FOLLOW-UP | 各 CC 有局部证据，项目级汇总仍需补强 |
-| Current Valid Evidence Set | BLOCKED | PVR Findings 未关闭 |
+| SRS Normative Coverage | SATISFIED WITH ACCEPTED RISK | CC-01 HVR、CC-06 上游 BR 和项目级覆盖缺口由项目负责人接受 |
+| Coding Closure completeness | SATISFIED WITH ACCEPTED RISK | CC-01 FR 的治理缺口作为发布残余风险接受 |
+| Final Regression Assessment | SATISFIED WITH ACCEPTED RISK | 已执行定向 Final Baseline Regression；未建立统一全量套件的风险接受 |
+| E2E / UAT | SATISFIED WITH FOLLOW-UP | 主要 CC 已有 HVR，CC-01 证据治理缺口已接受 |
+| Cross-feature Integration | SATISFIED WITH ACCEPTED RISK | CC-04/06/07 回归已有证据，统一全量套件缺口已接受 |
+| DDD/TDD Coverage | SATISFIED WITH FOLLOW-UP | TDD-Q-008 证据补强项保留为后续治理 |
+| Permission Verification | SATISFIED WITH FOLLOW-UP | 各 CC 有局部证据，项目级汇总缺口已接受 |
+| Current Valid Evidence Set | SATISFIED WITH ACCEPTED RISK | PVR Findings 已由项目负责人授权接受，不删除事实记录 |
 
 ## 5. Coverage Gaps
 
@@ -73,18 +73,24 @@ PCR 基于 PVR 事实作 Closure Assessment，不重新采集验证证据，也�
 ## 6. Closure Determination
 
 ```text
-Project Closure = BLOCKED
+Project Closure = SATISFIED WITH ACCEPTED RESIDUAL RISKS
 Release Decision = NOT APPROVED
 ```
 
-原因不是 CC-06/CC-07 的功能 HVR 未通过，而是项目级 Closure 的最终权威基线、CC-01 Coding Closure 和 Final Baseline Regression 尚未满足。
+项目负责人已于 2026-09-29 授权并冻结本 PCR，接受 PCR-GAP-001 至 PCR-GAP-004 所列残余风险。该授权不删除 PVR 中的事实证据，也不表示这些风险在技术上不存在。
 
 ## 7. Project Final Review
 
 | 项目 | 状态 |
 |---|---|
-| Project Final Review | PENDING USER/PROJECT AUTHORITY APPROVAL |
+| Project Final Review | APPROVED — PROJECT AUTHORITY |
 | Release v1.0 | NOT APPROVED |
-| 允许发布条件 | 关闭 PCR-GAP-001 至 PCR-GAP-003，并由项目负责人确认最终 Authority Baseline |
+| 允许发布条件 | 另行完成 Release Decision；PCR 冻结不自动创建 Release Tag 或推送远程仓库 |
 
-本 PCR 不创建 Release Tag，不替代项目负责人的最终发布决策。
+## 8. 审批与冻结记录
+
+| 版本 | 日期 | 变更 | 审批人 | 审批日期 |
+|---|---|---|---|---|
+| v1.0.0 | 2026-09-29 | 项目负责人授权 PCR 通过，接受列明残余风险并冻结。 | 项目负责人 | 2026-09-29 |
+
+本 PCR 已冻结。Release Decision 仍是独立的人类授权步骤。
