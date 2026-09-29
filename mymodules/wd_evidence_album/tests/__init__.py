@@ -1,1 +1,2 @@
-# Tests are added by later coding contracts.
+from . import test_portal
+from . import test_source_config

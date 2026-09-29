@@ -118,7 +118,7 @@
     </record>
 
     <record id="action_evidence_album" model="ir.actions.act_window">
-        <field name="name">Evidence Albums</field>
+        <field name="name">Media Albums</field>
         <field name="res_model">wd.evidence.album</field>
         <field name="view_mode">list,form</field>
         <field name="search_view_id" ref="view_evidence_album_search"/>

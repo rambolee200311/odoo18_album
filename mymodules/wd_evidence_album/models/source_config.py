@@ -6,11 +6,17 @@ from psycopg2 import IntegrityError
 
 class EvidenceAlbumSourceConfig(models.Model):
     _name = "wd.evidence.album.source.config"
-    _description = "Evidence Album Source Configuration"
+    _description = "Media Album Source Configuration"
     _order = "label, id"
     _rec_name = "label"
 
     model_id = fields.Many2one("ir.model", required=True, ondelete="cascade")
+    field_id = fields.Many2one(
+        "ir.model.fields",
+        string="Source Field Candidate",
+        domain="[('model_id', '=', model_id)]",
+        help="Optional UI helper to pick an existing field on the selected model.",
+    )
     field_name = fields.Char(required=True)
     label = fields.Char(required=True)
     title_field_name = fields.Char()
@@ -25,8 +31,41 @@ class EvidenceAlbumSourceConfig(models.Model):
         ),
     ]
 
+    def init(self):
+        defaults = {
+            "wd_evidence_album.zip.max_files": 50,
+            "wd_evidence_album.zip.max_total_bytes": 100 * 1024 * 1024,
+            "wd_evidence_album.zip.max_memory_bytes": 128 * 1024 * 1024,
+            "wd_evidence_album.zip.timeout_seconds": 60,
+            "wd_evidence_album.zip.max_concurrency": 2,
+        }
+        parameters = self.env["ir.config_parameter"].sudo()
+        for key, value in defaults.items():
+            if parameters.get_param(key) is None:
+                parameters.set_param(key, value)
+
+
+    @api.onchange("model_id")
+    def _onchange_model_id(self):
+        if not self.model_id:
+            self.field_id = False
+            return
+        if self.field_id and self.field_id.model_id != self.model_id:
+            self.field_id = False
+
+    @api.onchange("field_id")
+    def _onchange_field_id(self):
+        if self.field_id:
+            self.field_name = self.field_id.name
+
     @api.model_create_multi
     def create(self, vals_list):
+        vals_list = [dict(vals) for vals in vals_list]
+        for vals in vals_list:
+            if vals.get("field_id") and not vals.get("field_name"):
+                field = self.env["ir.model.fields"].browse(vals["field_id"]).exists()
+                if field:
+                    vals["field_name"] = field.name
         try:
             with self.env.cr.savepoint():
                 records = super().create(vals_list)
@@ -38,6 +77,11 @@ class EvidenceAlbumSourceConfig(models.Model):
         return records
 
     def write(self, vals):
+        vals = dict(vals)
+        if vals.get("field_id") and "field_name" not in vals:
+            field = self.env["ir.model.fields"].browse(vals["field_id"]).exists()
+            if field:
+                vals["field_name"] = field.name
         try:
             with self.env.cr.savepoint():
                 result = super().write(vals)

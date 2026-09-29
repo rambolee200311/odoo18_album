@@ -3,9 +3,9 @@
               inherit_id="portal.portal_my_home" priority="35">
         <xpath expr="//div[@id='portal_common_category']" position="inside">
             <t t-call="portal.portal_docs_entry">
-                <t t-set="title">Evidence Albums</t>
+                <t t-set="title">Media Albums</t>
                 <t t-set="text">View your published evidence albums</t>
-                <t t-set="url" t-value="'/my/evidence-albums'"/>
+                <t t-set="url" t-value="'/my/media-albums'"/>
                 <t t-set="config_card" t-value="True"/>
             </t>
         </xpath>
@@ -16,8 +16,8 @@
         <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
             <li t-if="page_name == 'evidence_album'"
                 t-attf-class="breadcrumb-item #{'active' if not album else ''}">
-                <a t-if="album" href="/my/evidence-albums">Evidence Albums</a>
-                <t t-else="">Evidence Albums</t>
+                <a t-if="album" href="/my/media-albums">Media Albums</a>
+                <t t-else="">Media Albums</t>
             </li>
             <li t-if="album" class="breadcrumb-item active">
                 <t t-esc="album.name"/>
@@ -25,54 +25,134 @@
         </xpath>
     </template>
 
-    <template id="portal_album_list" name="Evidence albums">
+    <template id="portal_album_list" name="Media albums">
         <t t-call="portal.portal_layout">
             <t t-set="page_name" t-value="'evidence_album'"/>
-            <div class="container my-4">
-                <h1>Evidence albums</h1>
+            <div class="container my-4 o_evidence_album_list">
+                <h1>Media albums</h1>
+                <form class="row g-2 align-items-center mb-4" method="get" action="/my/media-albums">
+                    <div class="col-md">
+                        <label class="visually-hidden" for="album-search">Search albums</label>
+                        <input id="album-search" class="form-control" type="search" name="search"
+                               placeholder="Search albums..." t-att-value="search"/>
+                    </div>
+                    <div class="col-md-auto">
+                        <label class="visually-hidden" for="album-sort">Sort albums</label>
+                        <select id="album-sort" class="form-select" name="sort">
+                            <option value="published_desc" t-att-selected="sort == 'published_desc'">Newest</option>
+                            <option value="published_asc" t-att-selected="sort == 'published_asc'">Oldest</option>
+                            <option value="name_asc" t-att-selected="sort == 'name_asc'">Name A-Z</option>
+                            <option value="name_desc" t-att-selected="sort == 'name_desc'">Name Z-A</option>
+                        </select>
+                    </div>
+                </form>
                 <div class="row g-3">
                     <t t-foreach="albums" t-as="album">
                         <div class="col-md-6 col-lg-4">
-                            <a class="card h-100 text-decoration-none" t-att-href="'/my/evidence-albums/%s' % album.id">
+                            <a class="card h-100 text-decoration-none o_evidence_album_list_card"
+                               t-att-data-search="'%s %s %s' % (album.name, album.description or '', album.customer_id.name)"
+                               t-att-href="'/my/media-albums/%s' % album.id">
+                                <div t-if="album_stats[album.id]['cover']"
+                                     class="ratio ratio-16x9 bg-light overflow-hidden rounded-top">
+                                    <img t-if="album_stats[album.id]['cover']['media_type'] == 'image'"
+                                         class="w-100 h-100 object-fit-cover"
+                                         t-att-src="'/my/media-albums/items/%s/media/thumb' % album_stats[album.id]['cover']['id']"
+                                         t-att-alt="album_stats[album.id]['cover']['filename']"/>
+                                    <video t-if="album_stats[album.id]['cover']['media_type'] == 'video'"
+                                           class="w-100 h-100 object-fit-cover"
+                                           autoplay="autoplay" muted="muted" loop="loop" playsinline="playsinline"
+                                           preload="metadata">
+                                        <source t-att-src="'/my/media-albums/items/%s/media' % album_stats[album.id]['cover']['id']"/>
+                                    </video>
+                                </div>
                                 <div class="card-body">
-                                    <h2 class="h5" t-esc="album.name"/>
-                                    <p class="text-muted mb-0" t-esc="album.description"/>
-                                    <small t-esc="'%s pages' % len(album.page_ids)"/>
+                                    <h2 class="h5 fw-semibold" t-esc="album.name"/>
+                                    <p t-if="album.description" class="text-muted small" t-esc="album.description"/>
+                                    <p class="mb-1">
+                                        <t t-esc="'%s page' % album_stats[album.id]['pages'] if album_stats[album.id]['pages'] == 1 else '%s pages' % album_stats[album.id]['pages']"/> ·
+                                        <t t-esc="'%s photo' % album_stats[album.id]['photos'] if album_stats[album.id]['photos'] == 1 else '%s photos' % album_stats[album.id]['photos']"/> ·
+                                        <t t-esc="'%s video' % album_stats[album.id]['videos'] if album_stats[album.id]['videos'] == 1 else '%s videos' % album_stats[album.id]['videos']"/>
+                                    </p>
+                                    <small t-if="album.published_at" class="text-muted">
+                                        Published <span t-field="album.published_at" t-options='{"widget": "date"}'/>
+                                    </small>
                                 </div>
                             </a>
                         </div>
                     </t>
                 </div>
                 <nav class="mt-4 d-flex justify-content-between" t-if="has_previous or has_next">
-                    <a t-if="has_previous" t-att-href="'/my/evidence-albums?page=%s' % (page - 1)">Previous</a>
-                    <a t-if="has_next" t-att-href="'/my/evidence-albums?page=%s' % (page + 1)">Next</a>
+                    <a t-if="has_previous"
+                       t-att-href="'/my/media-albums?page=%s&amp;search=%s&amp;sort=%s' % (page - 1, search, sort)">Previous</a>
+                    <span>Page <t t-esc="page"/> of <t t-esc="total_pages"/></span>
+                    <a t-if="has_next"
+                       t-att-href="'/my/media-albums?page=%s&amp;search=%s&amp;sort=%s' % (page + 1, search, sort)">Next</a>
                 </nav>
             </div>
         </t>
     </template>
 
-    <template id="portal_album" name="Evidence album viewer">
+    <template id="portal_album" name="Media album viewer">
         <t t-call="portal.portal_layout">
             <t t-set="page_name" t-value="'evidence_album'"/>
             <div class="container my-4 o_evidence_album_viewer">
-                <a href="/my/evidence-albums">← All albums</a>
-                <h1 t-esc="album.name"/>
-                <p t-esc="album.description"/>
+                <a href="/my/media-albums">← All albums</a>
+                <div class="d-flex justify-content-between align-items-start gap-4 mb-3">
+                    <div>
+                        <h1 class="display-5 fw-semibold mb-1" t-esc="album.name"/>
+                        <p class="mb-0" t-esc="album.description"/>
+                    </div>
+                    <div class="text-end text-muted flex-shrink-0">
+                        <div>
+                            <t t-esc="'Customer: %s' % album.customer_id.name"/>
+                        </div>
+                        <div>
+                            <t t-esc="'%s page' % len(pages) if len(pages) == 1 else '%s pages' % len(pages)"/> ·
+                            <t t-esc="'%s photo' % total_photos if total_photos == 1 else '%s photos' % total_photos"/> ·
+                            <t t-esc="'%s video' % total_videos if total_videos == 1 else '%s videos' % total_videos"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="o_evidence_album_page_tabs nav nav-tabs mb-4 flex-nowrap overflow-auto" role="tablist">
+                    <t t-foreach="pages" t-as="entry" t-key="entry['id']">
+                        <button type="button" class="nav-link o_evidence_album_page_tab text-nowrap"
+                                t-att-data-page-index="'%s' % entry['index']"
+                                t-att-aria-controls="'evidence-album-page-%s' % entry['id']"
+                                role="tab">
+                            <span class="text-truncate d-inline-block align-middle" style="max-width: 16rem;"
+                                  t-att-title="entry['title']" t-esc="entry['title']"/>
+                            <span class="text-muted ms-1">(<t t-esc="entry['item_count']"/>)</span>
+                        </button>
+                    </t>
+                </div>
                 <div class="o_evidence_album_controls_mount"/>
                 <t t-foreach="pages" t-as="entry">
-                    <section class="mb-5" t-att-data-page="entry['id']">
-                        <h2 t-esc="entry['title']"/>
+                    <section class="mb-5" t-att-id="'evidence-album-page-%s' % entry['id']"
+                             t-att-data-page="entry['id']" role="tabpanel">
+                        <h2 class="h4 fw-semibold mb-1" t-esc="entry['title']"/>
                         <p t-esc="entry['description']"/>
+                        <p class="text-muted">
+                            <t t-esc="'%s photo' % entry['photo_count'] if entry['photo_count'] == 1 else '%s photos' % entry['photo_count']"/> ·
+                            <t t-esc="'%s video' % entry['video_count'] if entry['video_count'] == 1 else '%s videos' % entry['video_count']"/>
+                        </p>
                         <div class="row g-3">
                             <t t-foreach="entry['items']" t-as="item">
-                                <div class="col-6 col-md-3" t-att-data-media-type="item['media_type']">
-                                    <a class="d-block" t-att-href="'/my/evidence-albums/items/%s/download' % item['id']">
+                                <div class="col-6 col-md-3 position-relative" t-att-data-media-type="item['media_type']">
+                                    <label class="position-absolute top-0 end-0 z-1 p-2">
+                                        <input type="checkbox" class="form-check-input me-1 o_evidence_album_item_select"
+                                               t-att-data-item-id="item['id']"/>
+                                        <span class="visually-hidden">Select media</span>
+                                    </label>
+                                    <a class="d-block" t-att-href="'/my/media-albums/items/%s/download' % item['id']">
                                         <img t-if="item['media_type'] == 'image'" class="img-fluid rounded" loading="lazy"
-                                             t-att-src="'/my/evidence-albums/items/%s/media/thumb' % item['id']"
+                                             t-att-src="'/my/media-albums/items/%s/media/thumb' % item['id']"
                                              t-att-alt="item['note'] or item['filename']"/>
                                         <video t-if="item['media_type'] == 'video'" class="img-fluid rounded" controls="controls" preload="metadata">
-                                            <source t-att-src="'/my/evidence-albums/items/%s/media' % item['id']" t-att-type="item['mimetype']"/>
+                                            <source t-att-src="'/my/media-albums/items/%s/media' % item['id']" t-att-type="item['mimetype']"/>
                                         </video>
+                                        <span t-if="item['media_type'] == 'video'"
+                                              class="position-absolute top-50 start-50 translate-middle badge rounded-pill bg-dark bg-opacity-75"
+                                              aria-label="Video">▶</span>
                                     </a>
                                     <small t-esc="item['note']"/>
                                 </div>

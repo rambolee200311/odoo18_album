@@ -5,7 +5,7 @@ from psycopg2 import IntegrityError
 
 class EvidenceAlbumItem(models.Model):
     _name = "wd.evidence.album.item"
-    _description = "Evidence Album Item"
+    _description = "Media Album Item"
     _order = "sequence, id"
 
     page_id = fields.Many2one(

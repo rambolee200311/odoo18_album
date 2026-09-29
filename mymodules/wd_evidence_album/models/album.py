@@ -7,7 +7,7 @@ from psycopg2 import IntegrityError
 
 class EvidenceAlbum(models.Model):
     _name = "wd.evidence.album"
-    _description = "Evidence Album"
+    _description = "Media Album"
     _order = "create_date desc, id desc"
 
     _ALLOWED_STATES = {

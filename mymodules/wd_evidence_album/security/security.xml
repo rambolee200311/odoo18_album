@@ -1,23 +1,23 @@
 <odoo>
     <record id="group_album_user" model="res.groups">
-        <field name="name">WMS Evidence Album User</field>
+        <field name="name">WMS Media Album User</field>
         <field name="category_id" ref="base.module_category_operations"/>
     </record>
 
     <record id="group_album_reviewer" model="res.groups">
-        <field name="name">WMS Evidence Album Reviewer</field>
+        <field name="name">WMS Media Album Reviewer</field>
         <field name="category_id" ref="base.module_category_operations"/>
         <field name="implied_ids" eval="[(4, ref('group_album_user'))]"/>
     </record>
 
     <record id="group_album_manager" model="res.groups">
-        <field name="name">WMS Evidence Album Manager</field>
+        <field name="name">WMS Media Album Manager</field>
         <field name="category_id" ref="base.module_category_operations"/>
         <field name="implied_ids" eval="[(4, ref('group_album_reviewer'))]"/>
     </record>
 
     <record id="rule_album_user_own" model="ir.rule">
-        <field name="name">Evidence Album: own albums</field>
+        <field name="name">Media Album: own albums</field>
         <field name="model_id" ref="model_wd_evidence_album"/>
         <field name="domain_force">[('create_uid', '=', user.id)]</field>
         <field name="groups" eval="[(4, ref('group_album_user'))]"/>
@@ -28,63 +28,63 @@
     </record>
 
     <record id="rule_album_reviewer_all" model="ir.rule">
-        <field name="name">Evidence Album: reviewer access</field>
+        <field name="name">Media Album: reviewer access</field>
         <field name="model_id" ref="model_wd_evidence_album"/>
         <field name="domain_force">[(1, '=', 1)]</field>
         <field name="groups" eval="[(4, ref('group_album_reviewer'))]"/>
     </record>
 
     <record id="rule_album_manager_all" model="ir.rule">
-        <field name="name">Evidence Album: manager access</field>
+        <field name="name">Media Album: manager access</field>
         <field name="model_id" ref="model_wd_evidence_album"/>
         <field name="domain_force">[(1, '=', 1)]</field>
         <field name="groups" eval="[(4, ref('group_album_manager'))]"/>
     </record>
 
     <record id="rule_page_user_own_album" model="ir.rule">
-        <field name="name">Evidence Album Page: own album</field>
+        <field name="name">Media Album Page: own album</field>
         <field name="model_id" ref="model_wd_evidence_album_page"/>
         <field name="domain_force">[('album_id.create_uid', '=', user.id)]</field>
         <field name="groups" eval="[(4, ref('group_album_user'))]"/>
     </record>
 
     <record id="rule_page_reviewer_all" model="ir.rule">
-        <field name="name">Evidence Album Page: reviewer access</field>
+        <field name="name">Media Album Page: reviewer access</field>
         <field name="model_id" ref="model_wd_evidence_album_page"/>
         <field name="domain_force">[(1, '=', 1)]</field>
         <field name="groups" eval="[(4, ref('group_album_reviewer'))]"/>
     </record>
 
     <record id="rule_page_manager_all" model="ir.rule">
-        <field name="name">Evidence Album Page: manager access</field>
+        <field name="name">Media Album Page: manager access</field>
         <field name="model_id" ref="model_wd_evidence_album_page"/>
         <field name="domain_force">[(1, '=', 1)]</field>
         <field name="groups" eval="[(4, ref('group_album_manager'))]"/>
     </record>
 
     <record id="rule_item_user_own_album" model="ir.rule">
-        <field name="name">Evidence Album Item: own album</field>
+        <field name="name">Media Album Item: own album</field>
         <field name="model_id" ref="model_wd_evidence_album_item"/>
         <field name="domain_force">[('album_id.create_uid', '=', user.id)]</field>
         <field name="groups" eval="[(4, ref('group_album_user'))]"/>
     </record>
 
     <record id="rule_item_reviewer_all" model="ir.rule">
-        <field name="name">Evidence Album Item: reviewer access</field>
+        <field name="name">Media Album Item: reviewer access</field>
         <field name="model_id" ref="model_wd_evidence_album_item"/>
         <field name="domain_force">[(1, '=', 1)]</field>
         <field name="groups" eval="[(4, ref('group_album_reviewer'))]"/>
     </record>
 
     <record id="rule_item_manager_all" model="ir.rule">
-        <field name="name">Evidence Album Item: manager access</field>
+        <field name="name">Media Album Item: manager access</field>
         <field name="model_id" ref="model_wd_evidence_album_item"/>
         <field name="domain_force">[(1, '=', 1)]</field>
         <field name="groups" eval="[(4, ref('group_album_manager'))]"/>
     </record>
 
     <record id="rule_album_portal_published_partner" model="ir.rule">
-        <field name="name">Evidence Album: portal published customer albums</field>
+        <field name="name">Media Album: portal published customer albums</field>
         <field name="model_id" ref="model_wd_evidence_album"/>
         <field name="domain_force">[('customer_id.commercial_partner_id', '=', user.partner_id.commercial_partner_id.id), ('state', '=', 'published')]</field>
         <field name="groups" eval="[(4, ref('base.group_portal'))]"/>
@@ -95,14 +95,14 @@
     </record>
 
     <record id="rule_page_portal_album" model="ir.rule">
-        <field name="name">Evidence Album Page: portal customer albums</field>
+        <field name="name">Media Album Page: portal customer albums</field>
         <field name="model_id" ref="model_wd_evidence_album_page"/>
         <field name="domain_force">[('album_id.customer_id.commercial_partner_id', '=', user.partner_id.commercial_partner_id.id), ('album_id.state', '=', 'published')]</field>
         <field name="groups" eval="[(4, ref('base.group_portal'))]"/>
     </record>
 
     <record id="rule_item_portal_album" model="ir.rule">
-        <field name="name">Evidence Album Item: portal customer albums</field>
+        <field name="name">Media Album Item: portal customer albums</field>
         <field name="model_id" ref="model_wd_evidence_album_item"/>
         <field name="domain_force">[('album_id.customer_id.commercial_partner_id', '=', user.partner_id.commercial_partner_id.id), ('album_id.state', '=', 'published')]</field>
         <field name="groups" eval="[(4, ref('base.group_portal'))]"/>

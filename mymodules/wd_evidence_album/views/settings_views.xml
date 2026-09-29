@@ -1,0 +1,33 @@
+<odoo>
+    <record id="view_evidence_album_settings_form" model="ir.ui.view">
+        <field name="name">wd.evidence.album.config.settings.form</field>
+        <field name="model">wd.evidence.album.config.settings</field>
+        <field name="arch" type="xml">
+            <form string="Media Album ZIP Settings">
+                <sheet>
+                    <group string="ZIP resource limits">
+                        <field name="zip_max_files"/>
+                        <field name="zip_max_total_bytes"/>
+                        <field name="zip_max_memory_bytes"/>
+                        <field name="zip_timeout_seconds"/>
+                        <field name="zip_max_concurrency"/>
+                    </group>
+                    <div class="alert alert-info" role="alert">
+                        All values must be positive. Changes apply to new ZIP requests.
+                    </div>
+                    <footer>
+                        <button string="Save" type="object" name="execute" class="btn-primary"/>
+                        <button string="Cancel" special="cancel" class="btn-secondary"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_evidence_album_settings" model="ir.actions.act_window">
+        <field name="name">ZIP Settings</field>
+        <field name="res_model">wd.evidence.album.config.settings</field>
+        <field name="view_mode">form</field>
+        <field name="target">current</field>
+    </record>
+</odoo>

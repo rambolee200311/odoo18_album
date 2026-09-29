@@ -4,7 +4,7 @@ from odoo.exceptions import UserError
 
 class EvidenceAlbumPage(models.Model):
     _name = "wd.evidence.album.page"
-    _description = "Evidence Album Page"
+    _description = "Media Album Page"
     _order = "sequence, id"
     _rec_name = "title"
 

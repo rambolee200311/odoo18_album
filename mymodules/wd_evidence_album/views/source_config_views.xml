@@ -7,6 +7,8 @@
                 <sheet>
                     <group>
                         <field name="model_id"/>
+                        <field name="field_id" options="{'no_create': True, 'no_open': True}"
+                               domain="[('model_id', '=', model_id), ('ttype', '=', 'many2many'), ('relation', '=', 'ir.attachment')]"/>
                         <field name="field_name"/>
                         <field name="label"/>
                         <field name="title_field_name"/>
@@ -27,6 +29,7 @@
         <field name="arch" type="xml">
             <list>
                 <field name="model_id"/>
+                <field name="field_id"/>
                 <field name="field_name"/>
                 <field name="label"/>
                 <field name="active"/>

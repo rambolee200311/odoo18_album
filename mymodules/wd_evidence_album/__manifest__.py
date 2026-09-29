@@ -1,6 +1,6 @@
 {
-    "name": "WMS Evidence Album",
-    "summary": "Evidence albums for customer media delivery",
+    "name": "WMS Media Albums",
+    "summary": "Media albums for customer media delivery",
     "version": "18.0.1.0.0",
     "category": "Operations",
     "author": "WMS",
@@ -14,12 +14,14 @@
         "views/page_views.xml",
         "views/item_views.xml",
         "views/source_config_views.xml",
+        "views/settings_views.xml",
         "views/wizard_views.xml",
         "views/menus.xml",
         "views/portal_templates.xml",
     ],
     "assets": {
         "web.assets_frontend": [
+            "wd_evidence_album/static/src/js/evidence_album_list.js",
             "wd_evidence_album/static/src/js/evidence_album_viewer.js",
             "wd_evidence_album/static/src/xml/evidence_album_viewer.xml",
         ],

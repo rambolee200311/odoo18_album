@@ -8,7 +8,7 @@ from odoo.exceptions import UserError
 
 class EvidenceAlbumMedia(models.AbstractModel):
     _name = "wd.evidence.album.media"
-    _description = "Evidence Album media services"
+    _description = "Media Album media services"
 
     @api.model
     def validate_attachment(self, attachment):

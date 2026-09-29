@@ -7,7 +7,7 @@ from odoo.exceptions import UserError
 
 class EvidenceAlbumSourceRecordOption(models.TransientModel):
     _name = "wd.evidence.album.source.record.option"
-    _description = "Evidence Album Source Record Option"
+    _description = "Media Album Source Record Option"
     _rec_name = "name"
 
     wizard_token = fields.Char(required=True, index=True)
