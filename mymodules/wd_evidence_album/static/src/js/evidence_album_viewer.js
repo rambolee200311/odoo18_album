@@ -189,10 +189,61 @@ class EvidenceAlbumViewer extends Component {
     }
 }
 
-document.querySelectorAll(".o_evidence_album_controls_mount").forEach((element) => {
-    mount(
-        EvidenceAlbumViewer,
-        element,
-        { props: { pages: [...element.closest(".o_evidence_album_viewer").querySelectorAll("[data-page]")] } },
-    );
-});
+function mountEvidenceAlbumViewers() {
+    document.querySelectorAll(".o_evidence_album_controls_mount").forEach((element) => {
+        if (element.dataset.mounted === "1") {
+            return;
+        }
+        const root = element.closest(".o_evidence_album_viewer");
+        if (!root) {
+            return;
+        }
+        element.dataset.mounted = "1";
+        mount(
+            EvidenceAlbumViewer,
+            element,
+            { props: { pages: [...root.querySelectorAll("[data-page]")] } },
+        );
+    });
+}
+
+function bindEvidenceAlbumPageTabs() {
+    document.querySelectorAll(".o_evidence_album_viewer").forEach((root) => {
+        if (root.dataset.tabsBound === "1") {
+            return;
+        }
+        const tabs = [...root.querySelectorAll(".o_evidence_album_page_tab")];
+        const pages = [...root.querySelectorAll("[data-page]")];
+        if (!tabs.length || !pages.length) {
+            return;
+        }
+        const selectPage = (index) => {
+            pages.forEach((page, pageIndex) => {
+                page.hidden = pageIndex !== index;
+            });
+            tabs.forEach((tab, tabIndex) => {
+                const active = tabIndex === index;
+                tab.classList.toggle("active", active);
+                tab.classList.toggle("fw-semibold", active);
+                tab.setAttribute("aria-selected", active ? "true" : "false");
+            });
+        };
+        tabs.forEach((tab) => {
+            tab.addEventListener("click", () => {
+                selectPage(Number(tab.dataset.pageIndex));
+            });
+        });
+        root.dataset.tabsBound = "1";
+        selectPage(0);
+    });
+}
+
+if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", () => {
+        mountEvidenceAlbumViewers();
+        bindEvidenceAlbumPageTabs();
+    }, { once: true });
+} else {
+    mountEvidenceAlbumViewers();
+    bindEvidenceAlbumPageTabs();
+}

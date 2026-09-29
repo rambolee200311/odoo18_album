@@ -42,6 +42,19 @@ class EvidenceAlbumPortal(http.Controller):
             raise NotFound()
         return album
 
+    def _authorized_preview_album(self, album_id):
+        user = request.env.user
+        if not user.has_group("wd_evidence_album.group_album_user"):
+            raise NotFound()
+        album = request.env["wd.evidence.album"].browse(album_id).exists()
+        if not album:
+            raise NotFound()
+        album.check_access_rights("read")
+        album.check_access_rule("read")
+        if album.state not in {"draft", "confirmed"}:
+            raise NotFound()
+        return album
+
     def _authorized_item(self, item_id):
         item = request.env["wd.evidence.album.item"].browse(item_id).exists()
         if not item or not item.album_id:
@@ -50,6 +63,21 @@ class EvidenceAlbumPortal(http.Controller):
         if item.availability_state != "available" or not item.attachment_id.id:
             raise NotFound()
         return item
+
+    def _authorized_preview_item(self, item_id):
+        item = request.env["wd.evidence.album.item"].browse(item_id).exists()
+        if not item or not item.album_id:
+            raise NotFound()
+        item.check_access_rights("read")
+        item.check_access_rule("read")
+        self._authorized_preview_album(item.album_id.id)
+        if item.availability_state != "available" or not item.attachment_id.id:
+            raise NotFound()
+        return item
+
+    @staticmethod
+    def _preview_mode():
+        return request.httprequest.args.get("preview") == "1"
 
     @classmethod
     def _config_int(cls, key):
@@ -247,9 +275,7 @@ class EvidenceAlbumPortal(http.Controller):
             },
         )
 
-    @http.route(["/my/media-albums/<int:album_id>", "/my/evidence-albums/<int:album_id>"], type="http", auth="user", website=True)
-    def evidence_album(self, album_id, **kwargs):
-        album = self._authorized_album(album_id)
+    def _album_view_data(self, album, preview=False):
         pages = []
         total_photos = 0
         total_videos = 0
@@ -266,6 +292,15 @@ class EvidenceAlbumPortal(http.Controller):
                     "note": item.note,
                     "mimetype": attachment.mimetype,
                     "filename": attachment.name,
+                    "media_url": "/my/media-albums/items/%s/media%s" % (
+                        item.id,
+                        "?preview=1" if preview else "",
+                    ),
+                    "thumb_url": "/my/media-albums/items/%s/media/thumb%s" % (
+                        item.id,
+                        "?preview=1" if preview else "",
+                    ),
+                    "download_url": None if preview else "/my/media-albums/items/%s/download" % item.id,
                 })
             photo_count = sum(item["media_type"] == "image" for item in item_data)
             video_count = sum(item["media_type"] == "video" for item in item_data)
@@ -281,6 +316,18 @@ class EvidenceAlbumPortal(http.Controller):
                 "photo_count": photo_count,
                 "video_count": video_count,
             })
+        return pages, total_photos, total_videos
+
+    @http.route(
+        "/odoo/evidence-albums/<int:album_id>/preview",
+        type="http",
+        auth="user",
+        website=True,
+        methods=["GET"],
+    )
+    def evidence_album_preview(self, album_id, **kwargs):
+        album = self._authorized_preview_album(album_id)
+        pages, total_photos, total_videos = self._album_view_data(album, preview=True)
         return request.render(
             "wd_evidence_album.portal_album",
             {
@@ -289,6 +336,23 @@ class EvidenceAlbumPortal(http.Controller):
                 "total_photos": total_photos,
                 "total_videos": total_videos,
                 "page_name": "evidence_album",
+                "preview": True,
+            },
+        )
+
+    @http.route(["/my/media-albums/<int:album_id>", "/my/evidence-albums/<int:album_id>"], type="http", auth="user", website=True)
+    def evidence_album(self, album_id, **kwargs):
+        album = self._authorized_album(album_id)
+        pages, total_photos, total_videos = self._album_view_data(album)
+        return request.render(
+            "wd_evidence_album.portal_album",
+            {
+                "album": album,
+                "pages": pages,
+                "total_photos": total_photos,
+                "total_videos": total_videos,
+                "page_name": "evidence_album",
+                "preview": False,
             },
         )
 
@@ -300,7 +364,7 @@ class EvidenceAlbumPortal(http.Controller):
         methods=["GET", "HEAD"],
     )
     def evidence_media(self, item_id, **kwargs):
-        item = self._authorized_item(item_id)
+        item = self._authorized_preview_item(item_id) if self._preview_mode() else self._authorized_item(item_id)
         # Only after all portal, partner, state, expiry and availability checks.
         attachment = item.attachment_id.sudo()
         payload = base64.b64decode(attachment.datas or b"")
@@ -327,7 +391,7 @@ class EvidenceAlbumPortal(http.Controller):
         methods=["GET", "HEAD"],
     )
     def evidence_thumbnail(self, item_id, **kwargs):
-        item = self._authorized_item(item_id)
+        item = self._authorized_preview_item(item_id) if self._preview_mode() else self._authorized_item(item_id)
         attachment = item.attachment_id.sudo()
         payload = base64.b64decode(attachment.datas or b"")
         if item.media_type == "image":

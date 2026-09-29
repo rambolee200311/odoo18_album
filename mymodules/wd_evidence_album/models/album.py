@@ -268,6 +268,18 @@ class EvidenceAlbum(models.Model):
             "context": {"default_album_id": self.id},
         }
 
+    def action_preview_portal(self):
+        self._check_single_action()
+        self.check_access_rights("read")
+        self.check_access_rule("read")
+        if self.state not in {"draft", "confirmed"}:
+            raise UserError("Only draft or confirmed albums can be previewed before publication.")
+        return {
+            "type": "ir.actions.act_url",
+            "url": "/odoo/evidence-albums/%s/preview" % self.id,
+            "target": "new",
+        }
+
     def action_extend_validity(self, new_valid_until):
         self._check_single_action()
         self._check_write_access()

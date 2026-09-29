@@ -21,6 +21,9 @@
         <field name="arch" type="xml">
             <form>
                 <header>
+                    <button name="action_preview_portal" type="object"
+                            string="Preview Portal"
+                            invisible="state not in ['draft', 'confirmed']"/>
                     <button name="action_confirm" type="object"
                             string="Confirm" class="btn-primary"
                             invisible="state != 'draft'"/>
