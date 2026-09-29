@@ -83,7 +83,7 @@
                                 Save the album before adding pages or media.
                             </div>
                             <field name="page_ids" mode="list,form" readonly="state != 'draft'">
-                                <list create="0" delete="0">
+                                <list create="0">
                                     <field name="sequence" widget="handle"/>
                                     <field name="title"/>
                                     <field name="description"/>
